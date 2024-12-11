@@ -11,7 +11,7 @@ For access to our restricted system, please see the [Roar Restricted Addendum](1
 Anyone with a Penn State access ID can request an account on Roar Collab.
 Students and postdocs must be sponsored by a Penn State faculty member (their supervisor, advisor or collaborator). 
 
-To request an account, fill out the [account request form](https://accounts.hpc.psu.edu/users/#).
+To request an account, fill out the [account request form](https://accounts.hpc.psu.edu/users/).
 Once approved, you can connect to RC using your PSU credentials.
 
 ## Non-PSU Collaborators
@@ -30,14 +30,14 @@ For those who prefer an interactive "point and click" interface, the Web Portal 
 
 The portal provides a solution for users who are not familiar with the Linux command line and who want the interactivity provided by the graphical interface.
 
-Connect to the portal using your web browser at [https://rcportal.hpc.psu.edu]
+Connect to the portal using your web browser at (https://rcportal.hpc.psu.edu)
 
 For more advanced tasks, users can access the command line interface through the portal under the "Clusters" menu:
 [img/RCPortalShell.png]
 
 ## Connecting via SSH
 
-Alternatively, you can access the cluster via [SSH][https://linux.die.net/man/1/ssh] from a terminal application running on your laptop.
+Alternatively, you can access the cluster via [SSH](https://linux.die.net/man/1/ssh) from a terminal application running on your laptop.
 
 On Windows, use the Command Prompt included by default. Or install an external SSH client such as [PuTTY](https://www.putty.org) or [MobaXterm](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://mobaxterm.mobatek.net/);
 
@@ -55,5 +55,5 @@ To make changes to your MFA device or method please visit [PSU's accounts portal
 ## Connecting to RR
 
 For security reasons, Roar Restricted can only be accessed via the [RR Portal](https://rrportal.hpc.psu.edu/) using the 
-(Penn State VPN)[https://pennstate.service-now.com/sp?id=kb_article_view&sysparm_article=KB0013431&sys_kb_id=24f7cdd9dbd7e0d02c4f9e74f3961967&spa=1]. 
-For more details, see the Roar Restricted Addendum](16_RoarRestricted).
+[Penn State VPN](https://pennstate.service-now.com/sp?id=kb_article_view&sysparm_article=KB0013431&sys_kb_id=24f7cdd9dbd7e0d02c4f9e74f3961967&spa=1). 
+For more details, see the [Roar Restricted Addendum](16_RoarRestricted).

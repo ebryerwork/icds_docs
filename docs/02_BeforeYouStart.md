@@ -15,8 +15,9 @@
      Keep an eye on your [disk space usage](10_FileStorage.md/#quotas).
 
 !!! warning "Don’t waste your compute resources."
-     Before a big job, run test jobs to make sure your code works.
-     [Time the test job](08_BatchJobs.md/#timing-jobs), and plan ahead.
+     Start with interactive sessions to test your workflow and set up your software.
+     When starting batch processing, run smaller test jobs to make sure your code works.
+
 
 ## Roar uses Linux
 

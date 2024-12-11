@@ -102,23 +102,3 @@ don't specify `account=open`, and then ask for anything but
 For more information, see documentation on 
 [salloc](https://slurm.schedmd.com/salloc.html) 
 and [sbatch](https://slurm.schedmd.com/sbatch.html).
-
-## PBS to SLURM
-
-Resource requests in old PBS batch scripts 
-must be rewritten to run under SLURM.  
-Fortunately, the translation is straightforward.
-
-| Resource Request | PBS | SLURM |
-| ---- | ---- | ---- |
-| Directive | `#PBS` | `#SBATCH` |
-| Number of nodes | `-l nodes` | `-N` or `--nodes` |
-| Number of CPUs | `-l ppn` | `-n` or `--ntasks` |
-| Amount of memory | `-l mem` | `--mem` or `--mem-per-cpu` |
-| Walltime | `-l walltime` | `-t` or `--time` |
-| Allocation | `-A` | `-A` or `--account` |
-
-For more information, see the 
-[Slurm Rosetta Stone](https://slurm.schedmd.com/rosetta.pdf).
-
-

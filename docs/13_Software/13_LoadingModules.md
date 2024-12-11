@@ -46,26 +46,5 @@ to the paths Unix searches when looking for applications.
 To see what a given modulefile does, use `module show <moduleName>`.
 
 !!! tip ""
-     Batch files must include `module load` commands
-     to load the modules they need.
-     Modules you have loaded when you submit a job with `squeue`
-     are not available to the job itself.
-
-## Automatic loading
-
-On Unix machines, settings are stored in "hidden" text files, 
-(names start with `.`, so they don't show up with `ls`),
-in your home directory.
-Settings files are hidden to keep users from meddling with them.
-But one such file that you may want to alter is `~/.bashrc`.
-
-When you log in, commands in .bashrc are automatically executed.
-So lines may be added to .bashrc to load modules
-for software you use frequently.
-
-!!! tip "" 
-     If your .bashrc file contains `module load` commands,
-     and your batch script begins with `#!/bin/bash`,
-     then your .bashrc file will execute when the batch job starts,
-     and the job will have access to the loaded modules.
-
+     Batch files must include `module load` commands to load the modules they need.
+     Modules you have loaded when you submit a job with `sbatch` are not inherited by the job.

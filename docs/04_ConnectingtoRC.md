@@ -1,5 +1,7 @@
 # Connecting to RC
 
+## Setting up a Login Account
+
 Access to Roar Collab (RC) requires a login account.
 All RC users have access to user-level [storage space](10_FileStorage.md/#quotas),
 and free access to the open queue.

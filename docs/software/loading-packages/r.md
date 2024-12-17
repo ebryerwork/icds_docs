@@ -1,6 +1,7 @@
+---
+title: Using R on Roar Collab
+---
 
-
-### R
 
 R is a free software environment for statistical computing and graphics.
 
@@ -15,7 +16,6 @@ R modules can be loaded from the central software stack, and R can also be insta
 
 #### Install R Packages
 
-R manages some dependencies and versions through the CRAN-like repos. 
 R packages can be installed from within the R console with the following command:
 
 ```
@@ -26,7 +26,7 @@ Upon running the install command, a warning usually appears stating that the def
 After entering "yes" as a response, it may then ask to create a personal library location. 
 Responding "yes" again will proceed with the installation, probably by asking to select a CRAN repository.
 
-The default personal directory described above will install the package within the `~/R/` directory. 
+The default personal directory described above will install the package within the `~/.R/` directory. 
 An install location can instead be supplied to the install command using the `lib` argument:
 
 ```
@@ -38,6 +38,8 @@ After installation, packages can then be loaded using the following command in t
 ```
 > library( <package> )
 ```
+
+### Custom library paths
 
 If the package was installed in a non-standard location, then the package can be loaded from that custom install location using the `lic.loc` argument of the `library()` command:
 

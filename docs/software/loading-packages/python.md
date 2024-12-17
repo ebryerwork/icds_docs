@@ -3,15 +3,19 @@
 
 ## Python 
 
-Python is a widely-used programming language,
-preloaded on Collab,
-which is greatly extensible in its capabilities
-by loading additional packages.
+Python is a widely-used programming language, preloaded on Collab,
+which is greatly extensible in its capabilities by loading additional packages.
 
 To load Python packages, use pip:
+
+### Installing packages using pip
+
 ```
 pip install --user <package>
 ```
+
+### Installing packages using conda
+
 Python packages are loaded by default into `$HOME/.local`.
 If you load a large number of big Python packages,
 you may exceed the limited storage space in your home directory.

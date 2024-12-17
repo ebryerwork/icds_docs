@@ -37,11 +37,11 @@ nav:
              - Installing From Source: software/installing-from-source/installing-from-source.md
              - Using Custom Modules: software/installing-from-source/custom-modules.md
              - Group Access to Software: software/installing-from-source/group-access.md
-        - Using Containers: software/containers.md
+        - Using Containers: software/using-containers.md
         - Package Management:
-             - Python Packages: loading-packages/python.md
-             - R Libraries: loading-packages/r.md
-             - Using Anaconda: loading-packages/anaconda.md
+             - Python Packages: software/loading-packages/python.md
+             - R Libraries: software/loading-packages/r.md
+             - Using Anaconda: software/loading-packages/anaconda.md
     - Running Jobs:
         - Using the Portal: running-jobs/portal/interactive-jobs.md
         - Using the Command Line:
@@ -50,3 +50,6 @@ nav:
         - Paid Resources: 
              - Using Allocations: running-jobs/using-paid-resources/charge-accounts.md
              - Managing Accounts: running-jobs/using-paid-resources/managing-paid-allocations.md
+    - Roar Restricted:
+        - Getting Started: roar-restricted/rr-getting-started.md
+        - Handling Data: roar-restricted/rr-handling.data.md

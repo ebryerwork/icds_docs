@@ -19,3 +19,7 @@ markdown_extensions:
 plugins:
     - bootstrap4-blockquotes
     - bootstrap4-tables
+
+nav:
+    - Getting Started: 01_GettingStarted
+    - Handling Data: 10_HandlingData

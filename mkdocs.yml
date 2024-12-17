@@ -21,5 +21,9 @@ plugins:
     - bootstrap4-tables
 
 nav:
-    - Getting Started: 01_GettingStarted
-    - Handling Data: 10_HandlingData
+    - Getting Started: 
+        - getting-started/before-you-start.md
+        - getting-started/compute-hardware.md
+        - getting-started/connecting-to-rc.md
+        - getting-started/system-overview.mdy
+    - Handling Data: 10_HandlingData/

@@ -1,4 +1,4 @@
-# Connecting to RC
+# Connecting to Roar Collab
 
 ## Setting up a Login Account
 

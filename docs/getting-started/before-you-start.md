@@ -1,4 +1,6 @@
-# Before you start
+---
+title: Before you start
+---
 
 ## Best Practices
 

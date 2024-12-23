@@ -9,21 +9,18 @@ These have different purposes:
 - **home** – for configuration files, and links to work, group, and scratch.
 - **work** – for your own work; 
 only you have read-write access to your home and work directories.
-- **group** – for collaborative work.  group space is owned by a PI;
-by default, group members have read access to all files in group.
-Space in group is not free, and is sold in 5 TB increments.
 - **scratch**  – for temporary storage of large files.  scratch is *not backed up*, 
-and files older than 30 days are *automatically deleted*.
+and files with a last modified time stamp older than 30 days will be *automatically deleted*.
 
-Files in home, work, and group are backed up by a sequence of daily "snapshots". 
-Snapshots are not saved beyond xxx days.
-If you mistakenly delete a file, you can request it to be restored from a snapshot.
-Try to avoid this.
+Additionally, PI-owned **group** storage directories are availalbe for purchase. These are designed for collaborative work or group level software.
+
+Files in home, work, and group are backed up by a sequence of daily "snapshots" which are kept for 90 days.  To have files restored from a snapshot, email Client Support at icds@psu.edu
+
 
 ## Archive storage
 
 To store infrequently-used files, low-cost archive storage can be purchased. 
-The Collab Archive is only accessible via the [Globus][globus] web interface,
+Archive is only accessible via the [Globus][globus] web interface,
 so access is not quick or convenient.
 If you store a directory that contains many files, 
 you should pack the directory into a single file with `tar`
@@ -31,21 +28,24 @@ you should pack the directory into a single file with `tar`
 before transferring.
 [globus]: 12_TransferringFiles.md#globus
 
+!!! warning "Archive storage is not suitable for storing protected data."
+
+
 ## Quotas
 
 home, work, group, and scratch directories are subject to limits,
-both on the total filespace and on the total number of files.
-On Collab, the limits are:
+both on the total filespace and on the total number of inodes. Inodes are data structures that store most of the essential information about a file or directory. Things like files, directories, and symlinks all count towards inode limits.
 
-| Storage | Path | Space | Files | Backup | Purpose |
+On RC, quota limits are:
+
+| Storage | Path | Size | Inodes | Backup | Purpose |
 | :----: | :----: | :----: | :----: | :----: | :----: |
 | Home | /storage/home | 16 GB | 500,000 | Daily  | Configuration files |
 | Work | /storage/work | 128 GB | 1 million | Daily  | User data |
 | Scratch | /scratch | None | 1 million | None | Temporary files |
-| Group | /storage/group | Specific to<br>allocation | 1 million <br>per TB | Daily | Shared data |
+| Group | /storage/group | Specific to<br>allocation | 1 million<br>per TB | Daily | Shared data |
 
-On Roar Restricted, there is no scratch or group;
-otherwise the limits are the same.
+On Roar Restricted, quota levels are the same, however users do not have access to a scratch directory and group storage directories are located in the restricted storage space (/restricted/group).
 
 
 ## Checking storage
@@ -54,10 +54,10 @@ If you fill or nearly fill your home or work directories,
 weird errors will result when you try to run programs or write files.
 To avoid this, keep an eye on your file sizes and total usage.
 
-There are two tools to check on your disk usage:
+The `quota_check` utility reports total usage for all storage locations 
+available to your account.
 
-- `check_storage_quotas` reports your total usage;
-- [`du`][du] reports the sizes of files and directories.
+To see the breakdown of file and directory size, [`du`][du] can be used
 [du]: https://man7.org/linux/man-pages/man1/du.1.html
 
 `du -sh *` gives "human-readable" sizes (in MB, GB, TB) 
@@ -73,9 +73,11 @@ lists directory sizes in order from large to small
 
 ## File permissions
 
-If you are a PI, you have group space on Collab, located at
+
+group space on Collab, located at
 `/storage/group/<PIuserID>/default`,
 for which the default file permissions and ownership are
+
 ```
 drwxr-s-- 2 root <PIuserID>
 ```

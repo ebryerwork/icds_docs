@@ -1,5 +1,8 @@
 # Managing files
 
+
+
+
 Common tasks on any filesystem include 
 navigating to a directory; listing the files; 
 creating folders;
@@ -35,6 +38,7 @@ opens a window that enables file management
 
 On Macs and PCs, powerful tools exist for finding files
 that match certain criteria, or contain certain text.
+
 Two Unix commands that provide similar capabilities 
 are [`find`][find] and [`grep`][grep].
 [find]: https://man7.org/linux/man-pages/man1/find.1.html

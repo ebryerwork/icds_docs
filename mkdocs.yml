@@ -24,8 +24,9 @@ nav:
     - Getting Started: 
         - getting-started/before-you-start.md
         - getting-started/compute-hardware.md
-        - getting-started/connecting-to-rc.md
         - getting-started/system-overview.md
+        - getting-started/connecting-to-rc.md
+        - getting-started/x11-forwarding.md
     - Handling Data:
         - File Storage: handling-data/file-storage.md
         - Managing Files: handling-data/managing-files.md

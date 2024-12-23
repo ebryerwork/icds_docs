@@ -31,11 +31,11 @@ nav:
         - File Storage: handling-data/file-storage.md
         - Managing Files: handling-data/managing-files.md
         - Transfering Data: 
-             - Overview: handling-data/transfering-data/transfer-overview.md
-             - Packing Files: handling-data/transfering-data/packing-files.md
-             - Globus: handling-data/transfering-data/globus.md
-             - Portal Transfers: handling-data/transfering-data/portal-transfers.md
-             - CLI Transfers: handling-data/transfering-data/cli-transfers.md
+             - handling-data/transfering-data/transfer-overview.md
+             - handling-data/transfering-data/packing-files.md
+             - handling-data/transfering-data/globus.md
+             - handling-data/transfering-data/portal-transfers.md
+             - handling-data/transfering-data/cli-transfers.md
     - Using Software:
         - Using Installed Software: software/modules.md
         - Using Custom Software:
@@ -58,4 +58,4 @@ nav:
              - Managing Accounts: running-jobs/using-paid-resources/managing-paid-allocations.md
     - Roar Restricted:
         - Getting Started: roar-restricted/rr-getting-started.md
-        - Handling Data: roar-restricted/rr-handling.data.md
+        - Handling Data: roar-restricted/rr-handling-data.md

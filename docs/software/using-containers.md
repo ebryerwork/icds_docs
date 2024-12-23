@@ -1,35 +1,13 @@
-### Containers
+---
+title: Containers
+---
 
-A container is a standard unit of software with two modes:
+## Overview
 
-1. Idle: When idle, a container is a file that stores everything an application (or collection of applications) requires to run (code, runtime, system tools, system libraries and settings).
-2. Running: When running, a container is a Linux process running on top of the host machine kernel with a user environment defined by the contents of the container file, not by the host OS.
-
-A container is an abstraction at the application layer. 
-Multiple containers can run on the same machine and share the host kernel with other containers, each running as isolated processes.
-
-Apptainer is a secure container platform designed for HPC use cases and is available on Roar. 
-Containers (or images) can either be pulled directly from a container repository or can be built from a definition file. 
-A definition file or recipe file contains everything required to build a container. 
-Building containers requires root privileges, so containers are built on your personal device and can be deployed on Roar. Alternatively, users can utilize the `--fakeroot` option to build containers without root privileges, and the usage of this method is described in Apptainer's documentation of the [fakeroot feature](https://apptainer.org/docs/user/main/fakeroot.html#usage).
-
-Software is continuously growing in complexity which can make managing the required user environment and wrangling dependent software an intractable problem. 
-Containers address this issue by storing the software and all its dependencies (including a minimal operating system) in a single image file, eliminating the need to install additional packages or alter the runtime environment. 
-This makes the software both shareable and portable while the output becomes reproducible.
-
-In a Slurm submission script, a container can be called serially using the following run line:
-
-```
-$ apptainer run <container> <args>
-```
-
-To use a container in parallel with MPI, the MPI library within the container must be compatible with the MPI implementation on the system, meaning that the MPI version on the system must generally be newer than the MPI version within the container. 
-More details on using MPI with containers can be found on Apptainer's [Apptainer and MPI Applications](https://apptainer.org/docs/user/1.0/mpi.html) page. 
-In a Slurm submission script, a container with MPI can be called using
-
-```
-$ srun apptainer exec <container> <command> <args>
-```
+Containers address the growing issue of software and dependency complexity by storing the 
+software and all its dependencies (including a minimal operating system) in a single image 
+file which, which runs on top of the host machine kernel - abstracting the application layer 
+and defining the user environment.
 
 Containers change the user space into a swappable component, and provide the following benefits:
 
@@ -39,20 +17,44 @@ Containers change the user space into a swappable component, and provide the fol
 - Performance: Similar performance characteristics as native applications
 - Compatibility: Open standard that is supported on all major Linux distributions
 
+If containers are new to you, we recommend the [Introduction to Containers on HPC lesson]
+(https://pawseysc.github.io/hpc-container-training/) developed by the [Pawsey Supercomputer 
+Centre](https://pawsey.org.au/).
 
-#### Container Registries
+Apptainer is a secure container platform designed for HPC use cases and is available on Roar. 
 
-Container images can be made publicly available, and containers for many use cases can be found at the following container registries:
+Containers (or images) can either be pulled directly from a container repository or can be 
+built from a definition file. 
 
-- [Docker Hub](https://hub.docker.com/)
-- [Singularity Hub](https://singularityhub.github.io/singularityhub-docs/)
-- [Singularity Cloud Library](https://cloud.sylabs.io/library)
-- [NVIDIA GPU Cloud](https://ngc.nvidia.com/catalog/containers)
-- [Quay.io](https://quay.io/)
-- [BioContainers](https://biocontainers.pro/)
+!!! warning Building containers requires root privileges.
+     Containers are built on your personal device and can be deployed on Roar. Alternatively, 
+     the `--fakeroot` option can be used to build containers without root privileges as described in 
+     Apptainer's documentation of the [fakeroot feature](https://apptainer.org/docs/user/main/fakeroot.html#usage).
 
 
-#### Useful Apptainer Commands
+
+## Using Containers with Slurm
+
+In a Slurm submission script, a container can be called serially using the following run line:
+
+```
+$ apptainer run <container> <args>
+```
+
+To use a container in parallel with MPI, the MPI library within the container must be compatible 
+with the MPI implementation on the system, meaning that the MPI version on the system must generally 
+be newer than the MPI version within the container. 
+
+More details on using MPI with containers can be found on Apptainer's [Apptainer and MPI Applications](https://apptainer.org/docs/user/1.0/mpi.html) page. 
+
+In a Slurm submission script, a container with MPI can be called using
+
+```
+$ srun apptainer exec <container> <command> <args>
+```
+
+
+## Useful Apptainer Commands
 
 | Command | Description |
 | ---- | ---- |
@@ -64,16 +66,4 @@ Container images can be made publicly available, and containers for many use cas
 | `apptainer build --sandbox <sbox> <container>` | Builds a sandbox from a container |
 | `apptainer build <container> <sbox>` | Builds a container from a sandbox |
 
-
-#### Building Container Images
-
-Containers can be made from scratch using a [definition file](https://apptainer.org/docs/user/latest/definition_files.html#definition-files), or recipe file, which is a text file that specifies the base image, the software to be installed, and other information. 
-The `apptainer build` command's [documentation](https://apptainer.org/docs/user/main/cli/apptainer_build.html) shows the full usage for the build command. 
-Container images can also be bootstrapped from other images, found on Docker Hub for instance.
-
-The recommended workflow for building containers is shown below:
-
-<center>
-![Recommended container workflow.](img/ContainerWorkflow.png)
-</center>
 

@@ -1,6 +1,4 @@
----
-title: Containers
----
+# Using Containers on RC
 
 ## Overview
 

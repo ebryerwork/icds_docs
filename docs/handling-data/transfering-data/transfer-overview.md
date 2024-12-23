@@ -20,23 +20,4 @@ and list approximate transfer rates for large files.
 | OneDrive &rarr; Collab | Firefox or Globus | 10 |
 | Collab &harr; laptop | Portal Files menu | 25 |
 | Collab &harr; laptop | Cyberduck or FileZilla | 15 |
-| OneDrive &harr; laptop | web access |20 |
-
-## Firefox
-
-The Firefox browser is available either 
-from the [Portal Interactive Desktop][portalID]
-or from an [SSH -X session][sshx].
-From Firefox, you can access OneDrive
-and other similar destinations,
-and perform file transfers.
-[portalID]: 06_AccessingCollab.md
-[sshx]: 06_AccessingCollab.md#access-via-ssh
-
-## Portal Files menu
-
-The Collab [Portal][portal] top menu under Files/Home
-opens a window that enables convenient file transfer 
-between Collab and your laptop.
-[portal]: https://rcportal.hpc.psu.edu/pun/sys/dashboard
-
+| OneDrive &harr; laptop | Local Web Browser | 20 |

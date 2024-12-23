@@ -29,12 +29,16 @@ before transferring.
 [globus]: 12_TransferringFiles.md#globus
 
 !!! warning "Archive storage is not suitable for storing protected data."
-
+     If you are working with data or software that must adhere to regulatory requirements
+     please contact us or the [Office of Information Security](https://security.psu.edu) 
+     to ensure it is being handled appropriately.
 
 ## Quotas
 
 home, work, group, and scratch directories are subject to limits,
-both on the total filespace and on the total number of inodes. Inodes are data structures that store most of the essential information about a file or directory. Things like files, directories, and symlinks all count towards inode limits.
+both on the total filespace and on the total number of inodes. Inodes are data structures that 
+store most of the essential information about a file or directory. Files, directories, and 
+symlinks all count towards inode limits.
 
 On RC, quota limits are:
 
@@ -45,7 +49,32 @@ On RC, quota limits are:
 | Scratch | /scratch | None | 1 million | None | Temporary files |
 | Group | /storage/group | Specific to<br>allocation | 1 million<br>per TB | Daily | Shared data |
 
-On Roar Restricted, quota levels are the same, however users do not have access to a scratch directory and group storage directories are located in the restricted storage space (/restricted/group).
+On Roar Restricted, quota levels are the same, however users do not have access to a scratch 
+directory and group storage directories are located in the restricted storage space (/restricted/group).
+
+
+### Solution to common quota issues in home
+
+Many user level config files and package libraries are stored in the home directory by default.
+Large package libraries can quickly overwhelm the home quota and cause out of space errors. 
+This commonly occurs with directories such a
+
+ - `.local` - used by Python to store user installed packages
+ - `.conda` - used by Anaconda to store package caches and user-level environments
+ - `.comsol` - used by Comsol
+
+These [dot files](https://missing.csail.mit.edu/2019/dotfiles/) are hidden by default. You can view
+them via the command line using the `ls -la` command.
+
+To correct the out of space error, it is recommended to move the offending directory to work and create 
+symlink pointing to the new location. For example, moving the `.conda` directory is done with the following commands:
+
+```
+mv ~/.conda $WORK/.conda
+ln -s $WORK/.conda ~/.conda
+```
+
+This can be repeated for any directory in home that is causing the out of space error.
 
 
 ## Checking storage

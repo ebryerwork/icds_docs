@@ -1,8 +1,6 @@
----
-title: Before you start
----
+## Before you start
 
-## Best Practices
+### Best Practices
 
 !!! warning "Don’t use submit nodes for heavy computing."
      Submit nodes are for preparing files, submitting jobs, 
@@ -21,7 +19,7 @@ title: Before you start
      When starting batch processing, run smaller test jobs to make sure your code works.
 
 
-## Roar uses Linux
+### Roar uses Linux
 
 The operating system for Roar is Red Hat Enterprise Linux 8 ([RHEL8](https://www.redhat.com/en),
 a text-based operating system where users interact with the system

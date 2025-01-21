@@ -68,8 +68,6 @@ gmx mdrun -nt 8 -nb cpu -deffnm nvt
 
 Everything after the last `#SBATCH` are commands to be executed;
 lines with `#` other than `#SBATCH` are ordinary bash script comments.
-Most scripts start with `cd $SLURM_SUBMIT_DIR`,
-which is the directory from which the job was submitted.
 
 Use `module load` just as you would interactively
 to load any modules the batch script needs.

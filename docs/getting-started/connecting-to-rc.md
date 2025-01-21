@@ -6,7 +6,7 @@ Access to Roar Collab (RC) requires a login account.
 All RC users have access to user-level [storage space](10_FileStorage.md/#quotas),
 and free access to the open queue.
 
-For access to our restricted system, please see the [Roar Restricted Addendum](16_RoarRestricted.md).
+For access to the restricted system, please see the [Roar Restricted Addendum](16_RoarRestricted.md).
 
 Anyone with a Penn State access ID can request an account on Roar Collab.
 Students and postdocs must be sponsored by a Penn State faculty member (their supervisor, advisor or collaborator). 
@@ -30,7 +30,7 @@ For those who prefer an interactive "point and click" interface, the Web Portal 
 
 The portal provides a solution for users who are not familiar with the Linux command line and who want the interactivity provided by the graphical interface.
 
-Connect to the portal using your web browser at (https://rcportal.hpc.psu.edu)
+Connect to the portal using your web browser at (https://portal.hpc.psu.edu)
 
 For more advanced tasks, users can access the command line interface through the portal under the "Clusters" menu:
 [img/RCPortalShell.png]
@@ -57,3 +57,20 @@ To make changes to your MFA device or method please visit [PSU's accounts portal
 For security reasons, Roar Restricted can only be accessed via the [RR Portal](https://rrportal.hpc.psu.edu/) using the 
 [Penn State VPN](https://pennstate.service-now.com/sp?id=kb_article_view&sysparm_article=KB0013431&sys_kb_id=24f7cdd9dbd7e0d02c4f9e74f3961967&spa=1). 
 For more details, see the [Roar Restricted Addendum](16_RoarRestricted).
+
+## X Window apps
+
+To use any application that "opens a window"
+(called an  "X Window" or "X11" application), 
+you need an additional program on your laptop.
+On the Mac, this is XQuartz, available [here](https://www.xquartz.org).
+On the PC, you need VcXsrv, available [here](https://sourceforge.net/projects/vcxsrv/).
+
+To use cluster applications that open windows, log on with
+option `-X` for "X forwarding":
+```
+ssh -X <user>@submit.hpc.psu.edu
+```
+When you log on to Collab from somewhere off campus,
+X Window apps can sometimes be slow;  
+Portal works better in such circumstances.

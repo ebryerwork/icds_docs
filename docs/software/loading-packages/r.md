@@ -1,20 +1,16 @@
----
-title: Using R on Roar Collab
----
+# Managing R Libraries
 
+R is a free software environment for statistical computing and graphics. 
+Many commonly used libraries have been preloaded on Roar Collab and can be 
+used with the `library()` command.
 
-R is a free software environment for statistical computing and graphics.
-
-
-#### R Versions
+## R Versions
 
 R users should make sure that the version of R remains consistent. 
 Several R versions are available, and when a package is installed in one version, it is not always accessible when operating in another version. 
 Always check the R version and remain consistent! 
-R modules can be loaded from the central software stack, and R can also be installed by users in a variety of ways within their userspace or group spaces.
 
-
-#### Install R Packages
+## Installing R Packages
 
 R packages can be installed from within the R console with the following command:
 
@@ -22,16 +18,8 @@ R packages can be installed from within the R console with the following command
 > install.packages( <package> )
 ```
 
-Upon running the install command, a warning usually appears stating that the default system install location is not writable, so it asks to install in a personal library instead. 
-After entering "yes" as a response, it may then ask to create a personal library location. 
-Responding "yes" again will proceed with the installation, probably by asking to select a CRAN repository.
-
-The default personal directory described above will install the package within the `~/.R/` directory. 
-An install location can instead be supplied to the install command using the `lib` argument:
-
-```
-> install.packages( "<package>", lib="<install_location>" )
-```
+The first time you run this command in a single version of R, you will be prompted to create a personal library.
+The default location for your personal library is the `.R` directory found in your home directory. 
 
 After installation, packages can then be loaded using the following command in the R console:
 
@@ -41,82 +29,74 @@ After installation, packages can then be loaded using the following command in t
 
 ### Custom library paths
 
-If the package was installed in a non-standard location, then the package can be loaded from that custom install location using the `lic.loc` argument of the `library()` command:
+To install a package in a custom location, an install location can be specified using the `lib` argument:
 
 ```
-> library( <package>, lib.loc="<install_location>" )
+> install.packages( "<package>", lib="<install_path>" )
 ```
 
-Another method to specify package installation locations for R is to modify the `R_LIBS` environment variable before launching an R console session. 
-If RStudio is being used, though, the `R_LIBS_USER` environment variable must be modified before launching RStudio. 
+To load a package installed in a non-standard location, the `lic.loc` argument of the `library()` command is used to specific the install location:
+
+```
+> library( <package>, lib.loc="<install_path>" )
+```
+
+Another method to specify package installation locations for R is to modify the `R_LIBS` or `R_LIBS_USER` 
+environment variable before launching an R console session. `R_LIBS` is sufficent for command line use of R, 
+but if RStudio is being used, the `R_LIBS_USER` environment variable must be modified before launching RStudio. 
+
 Modifying these environment variables properly can eliminate the need to use the `lib.loc` option of R's `library()` command.
 
-It is recommended to review dependencies of any packages to be installed because additional software may have to be loaded in the environment before launching the R console. 
+It is recommended to review dependencies of any packages to be installed because additional software may have to 
+be loaded in the environment before launching the R console. 
+
 For example, some R packages utilize CMake to perform the installation. 
 In that case, the *cmake* module should be loaded before launching the R console session.
 
 
-#### R Package Installation Example
+### Dependencies
 
-To install the ggplot2 R package, first search ggplot2 online to see if there are installation instructions. 
-A quick search shows that ggplot2 is included in the tidyverse package and that the recommended installation instructions are the following:
+Some R packages may require additional software or changes to the user environment before the package 
+can be installed successfully within the R console. Sometimes this is loading a necessary compiler version 
+or other software dependencies which is accomplished by using the `module load` command prior to launching 
+R session.
 
+Always check the package documentation for details on which dependencies a specific package requires. CRAN hosted packages 
+almost always have a Reference manual which specify dependencies.
+
+#### R Package Installation Example: units
+
+
+Sometimes dependent software or libraries will need to be downloaded and installed to proceed with the R package
+installation.
+
+For example, to install the R package `units`, we can see by [the package documentation](https://cran.r-project.org/web/packages/units/units.pdf) 
+that it requires the C library udunits-2 as specified under "SystemRequirements". Before we can install `units` 
+the system library udunits-2 must be downloaded and compiled:
+ 
 ```
-# The easiest ways to get ggplot2 is to install the whole tidyverse package:
-> install.packages("tidyverse")
-
-# Alternatively, install just ggplot2:
-> install.packages("ggplot2")
-```
-
-Searching for install instructions usually provides all the necessary information!
-
-Some R packages may require changes to the user environment before the package can be installed successfully within the R console. 
-Typically, the user environment change is as simple as accessing a newer compiler version by loading a software module like *intel* with
-
-```
-$ module load intel
-```
-
-Sometimes, installing R packages may be a little more involved. 
-To install the *units* R package, for example, an additional library must be downloaded and installed locally for the package to be installed properly. 
-To install the *units* R package for R version 4.2.1, perform the following commands in an interactive session on a compute node:
-
-```
-$ cd ~/scratch
 $ wget https://downloads.unidata.ucar.edu/udunits/2.2.28/udunits-2.2.28.tar.gz
 $ tar -xvf udunits-2.2.28.tar.gz
 $ cd udunits-2.2.28
 $ ./configure prefix=$HOME/.local
 $ make
 $ make install
+```
+
+Once the library is compiled, certain environmental variables are updated to ensure R can find the 
+udunits-2 library:
+
+```
 $ export UDUNITS2_INCLUDE=$HOME/.local/include
 $ export UDUNITS2_LIBS=$HOME/.local/lib
 $ export LD_LIBRARY_PATH=$HOME/.local/lib:$LD_LIBRARY_PATH
+```
+
+Now that the requirements are set up and available, we can proceed with installing the R package:
+```
 $ module load r/4.2.1
 $ R
 > install.packages("units")
 > library(units)
-```
-
-
-#### R Packages with Anaconda
-
-The R installation itself and its R packages can be easily installed and managed within a conda environment. 
-Creating a conda environment containing its own R installation and some R packages can be accomplished with the following:
-
-```
-(base) $ conda create -n r_env
-(base) $ conda activate r_env
-(r_env) $ conda install r-base
-(r_env) $ conda install r-tidyverse
-```
-
-Note that after `r-base` is the base R installation, and R packages (or in the case of `tidyverse`, a bundle of packages) usually are named `r-*` in conda repos.
-
-Alternatively, the creation of this environment can be completed with a single line.
-
-```
-(base) $ conda create -n r_env r-base r-tidyverse
 ```
 

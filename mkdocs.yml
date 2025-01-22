@@ -53,8 +53,9 @@ nav:
              - Interactive Jobs: running-jobs/cli/interactive-jobs.md
              - Batch Jobs: running-jobs/cli/batch-jobs.md
         - Paid Resources: 
-             - Using Allocations: running-jobs/using-paid-resources/charge-accounts.md
-             - Managing Accounts: running-jobs/using-paid-resources/managing-paid-allocations.md
+             - Using Allocations: running-jobs/using-paid-resources/allocations.md
+             - Using Credit Accounts: running-jobs/using-paid-resources/credit-accounts.md
+             - Managing Accounts: running-jobs/using-paid-resources/managing-accounts.md
     - Roar Restricted:
         - Getting Started: roar-restricted/rr-getting-started.md
         - Handling Data: roar-restricted/rr-handling-data.md

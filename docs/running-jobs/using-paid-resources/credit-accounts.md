@@ -90,7 +90,7 @@ Or as a flag to an `salloc` command to request an interactive command line sessi
 salloc -A <compute_account> -p <hardware_partition>
 ```
 
-## Requesting GPUs
+### Requesting GPUs
 
 All GPUs on Roar Collab available for credit accounts are hosted within the `standard` partition.
 
@@ -118,7 +118,7 @@ salloc -A <credit_account_id> -p standard --gpus=n
 Total credit billing for GPU jobs will be a combination of the CPU and GPU usage.
 
 
-### Requesting specific GPU models
+#### Requesting specific GPU models
 
 There are several different models of GPUs available on RC, most of which can be used for credit account jobs. These include:
 - `p100` - NVIDIA P100 GPU (1 card per node)

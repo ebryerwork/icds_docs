@@ -48,14 +48,19 @@ nav:
              - R Libraries: software/loading-packages/r.md
              - Using Anaconda: software/loading-packages/anaconda.md
     - Running Jobs:
-        - Using the Portal: running-jobs/portal/interactive-jobs.md
+        - Using the Portal: 
+             - Portal Overview: running-jobs/portal/portal-overview.md
+             - Interactive Jobs: running-jobs/portal/interactive-jobs.md
+             - Using Anaconda Environments: running-jobs/portal/using-conda.md
         - Using the Command Line:
+             - Scheduler Overview: running-jobs/cli/slurm.md
              - Interactive Jobs: running-jobs/cli/interactive-jobs.md
              - Batch Jobs: running-jobs/cli/batch-jobs.md
+             - Managing Jobs: running-jobs/managing-jobs.md
         - Paid Resources: 
-             - Using Allocations: running-jobs/using-paid-resources/allocations.md
-             - Using Credit Accounts: running-jobs/using-paid-resources/credit-accounts.md
-             - Managing Accounts: running-jobs/using-paid-resources/managing-accounts.md
+             - Using Allocations: running-jobs/paid-resources/allocations.md
+             - Using Credit Accounts: running-jobs/paid-resources/credit-accounts.md
+             - Managing Accounts: running-jobs/paid-resources/managing-accounts.md
     - Roar Restricted:
         - Getting Started: roar-restricted/rr-getting-started.md
         - Handling Data: roar-restricted/rr-handling-data.md

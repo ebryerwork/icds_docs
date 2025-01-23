@@ -58,19 +58,26 @@ For security reasons, Roar Restricted can only be accessed via the [RR Portal](h
 [Penn State VPN](https://pennstate.service-now.com/sp?id=kb_article_view&sysparm_article=KB0013431&sys_kb_id=24f7cdd9dbd7e0d02c4f9e74f3961967&spa=1). 
 For more details, see the [Roar Restricted Addendum](16_RoarRestricted).
 
-## X Window apps
+## X11 Forwarding / X Window
 
-To use any application that "opens a window"
-(called an  "X Window" or "X11" application), 
-you need an additional program on your laptop.
-On the Mac, this is XQuartz, available [here](https://www.xquartz.org).
-On the PC, you need VcXsrv, available [here](https://sourceforge.net/projects/vcxsrv/).
+X11 forwarding allows remote graphical applications to be displayed on a local machine via an SSH connection. 
+This is accomplished by the remote machine communicating with an XServer which runs on your local computer.
 
+To set this up:
+
+1. Install an XServer client on your local computer:
+
+ - MacOS: [XQuartz](https://www.xquartz.org).
+ - Windows: [VcXsrv](https://sourceforge.net/projects/vcxsrv/).
+
+
+2. Enable X11 forwarding when connecting via SSH:
 To use cluster applications that open windows, log on with
-option `-X` for "X forwarding":
+
 ```
 ssh -X <user>@submit.hpc.psu.edu
 ```
-When you log on to Collab from somewhere off campus,
-X Window apps can sometimes be slow;  
-Portal works better in such circumstances.
+
+Using X11 forwarding with a local computer that is connecting from outside of the Penn State networks can 
+result in slow or "laggy" performance. Using [Interactive Portal Jobs](../running-jobs/portal/interactive-jobs.md) 
+may provide better performance.

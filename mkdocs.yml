@@ -48,10 +48,7 @@ nav:
              - R Libraries: software/loading-packages/r.md
              - Using Anaconda: software/loading-packages/anaconda.md
     - Running Jobs:
-        - Using the Portal: 
-             - Portal Overview: running-jobs/portal/portal-overview.md
-             - Interactive Jobs: running-jobs/portal/interactive-jobs.md
-             - Using Anaconda Environments: running-jobs/portal/using-conda.md
+        - Using the Portal: running-jobs/portal.md
         - Using the Command Line:
              - Scheduler Overview: running-jobs/cli/slurm.md
              - Interactive Jobs: running-jobs/cli/interactive-jobs.md

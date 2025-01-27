@@ -9,8 +9,10 @@ $ sacctmgr show User $(whoami) --associations format=account%30,qos%40
 
 ## Modifying Allocation Coordinators
 
-The principal contact for a compute allocation is automatically designated as a coordinator for the compute account associated with the compute allocation. 
-A coordinator can add or remove another coordinator with the following command:
+The principal contact for a compute allocation is automatically designated as a coordinator for the account. 
+Account coordinators can control access to a compute account by adding and removing other users and coordinators.
+ 
+To add or remove account coordinators:
 
 ```
 $ sacctmgr add coordinator account=<compute-account> name=<userid>
@@ -32,10 +34,10 @@ $ sacctmgr remove user account=<compute-account> name=<userid>
 
 Group storage access is managed by collab groups. Each account owner has a collab group that has access 
 to their group storage directory by default. To add and remove users from a collab group, please have the 
-group owner send in a request to [mailto:icds@psu.edu].
+group owner send in a request to <icds@psu.edu>.
 
 For custom group storage configurations including multiple collab groups or varying subdirectory permissions, 
-please contact (mailto:icds@psu.edu) for more information.
+please contact <icds@psu.edu> for more information.
 
 ### User-Managed Groups
 

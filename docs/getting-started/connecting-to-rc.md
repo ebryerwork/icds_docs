@@ -30,10 +30,10 @@ For those who prefer an interactive "point and click" interface, the Web Portal 
 
 The portal provides a solution for users who are not familiar with the Linux command line and who want the interactivity provided by the graphical interface.
 
-Connect to the portal using your web browser at (https://portal.hpc.psu.edu)
+Connect to the portal using your web browser at [https://portal.hpc.psu.edu]
 
 For more advanced tasks, users can access the command line interface through the portal under the "Clusters" menu:
-[img/RCPortalShell.png]
+![..img/RCPortalShell.png]
 
 ## Connecting via SSH
 
@@ -66,13 +66,9 @@ This is accomplished by the remote machine communicating with an XServer which r
 To set this up:
 
 1. Install an XServer client on your local computer:
-
- - MacOS: [XQuartz](https://www.xquartz.org).
- - Windows: [VcXsrv](https://sourceforge.net/projects/vcxsrv/).
-
-
+    - MacOS: [XQuartz](https://www.xquartz.org).
+    - Windows: [VcXsrv](https://sourceforge.net/projects/vcxsrv/).
 2. Enable X11 forwarding when connecting via SSH:
-To use cluster applications that open windows, log on with
 
 ```
 ssh -X <user>@submit.hpc.psu.edu

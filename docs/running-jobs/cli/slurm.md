@@ -32,7 +32,7 @@ also use resource directives through the drop down menus in the portal interface
 The following table lists some of the most commonly used resource directives.
 
 | Short option | Long option | Description |
-| ---- | ---- | ---- | ---- | 
+| ---- | ---- | ---- |
 | `-J` | `--job-name` | Specify a name for the job |
 | `-A` | `--account` | Charge resources used by a job to a specified account |
 | `-p` | `--partition` | Request a partition for the resource allocation |

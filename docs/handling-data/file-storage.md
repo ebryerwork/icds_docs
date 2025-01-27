@@ -101,8 +101,11 @@ lists directory sizes in order from large to small
 
 ## File permissions
 
+File permissions are settings that can be set on files and directories that 
+control who has access to read, write, and execute them. These settings can be 
+set at the user, group, or global level.
 
-group space on Collab, located at
+For example, group space on Collab, located at
 `/storage/group/<PIuserID>/default`,
 for which the default file permissions and ownership are
 
@@ -123,6 +126,4 @@ chmod g+r <filespec>
 More generally, chmod can be used to add or remove (+ or -) 
 permissions to read (r), write (w), or execute (x),
 for the user (u), group (g), or others (o).
-
-
 

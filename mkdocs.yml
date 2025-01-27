@@ -29,9 +29,9 @@ nav:
     - Handling Data:
         - File Storage: handling-data/file-storage.md
         - Managing Files: 
-             - handling-data/managing-files.md
-             - handling-data/searching-files.md
-             - handling-data/archives.md
+             - handling-data/managing-files/managing-files.md
+             - handling-data/managing-files/searching-files.md
+             - handling-data/managing-files/archives.md
         - Transfering Data: 
              - handling-data/transfering-data/transfer-overview.md
              - handling-data/transfering-data/globus.md

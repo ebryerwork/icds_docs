@@ -13,9 +13,9 @@ but only approved data administrators can move data
 between the staging area and the outside world
 (see diagrams below).
 
-![Roar Restricted Outbound Transfer Workflow Diagram](img/RROutboundTransfer.png)
+![Roar Restricted Outbound Transfer Workflow Diagram](../img/RROutboundTransfer.png)
 
-![Roar Restricted Inbound Transfer Workflow Diagram](img/RRInboundTransfer.png)
+![Roar Restricted Inbound Transfer Workflow Diagram](../img/RRInboundTransfer.png)
 
 PIs can request approval to perform such data transfers,
 or nominate data administrators from their group.

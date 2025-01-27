@@ -54,7 +54,6 @@ nav:
              - Scheduler Overview: running-jobs/cli/slurm.md
              - Interactive Jobs: running-jobs/cli/interactive-jobs.md
              - Batch Jobs: running-jobs/cli/batch-jobs.md
-             - Managing Jobs: running-jobs/managing-jobs.md
         - Paid Resources: 
              - Using Allocations: running-jobs/paid-resources/allocations.md
              - Using Credit Accounts: running-jobs/paid-resources/credit-accounts.md

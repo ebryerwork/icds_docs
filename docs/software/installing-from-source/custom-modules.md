@@ -1,4 +1,6 @@
-The contents of a modulefile are:
+# Creating custom module files
+
+ICDS uses the lmod Environmental Module system. The contents of a modulefile are:
 
 - "whatis" directives,
 that supply information for `module info` and `module spider`;

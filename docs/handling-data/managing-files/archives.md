@@ -1,31 +1,25 @@
-## Packing files
+# Creating File Archives using tar
 
-To transfer many files,
-or an entire directory of files, possibly with subdirectories,
-it is convenient to first make a single large file
-of the entire contents,
-using the Unix command `tar`
-("Tape ARchive", because in ancient days big files
-would be archived to magnetic tape).  The command
-```
-tar -cf <tarfilename>.tar <filespec>
-```
-creates (`-c`) a single .tar file (`-f`) (sometimes called a "tarball"),
-containing the entire contents of `<filespec>`.
-With option `-v` (as in `tar -cvf`), tar operates "verbosely",
-listing every file added.
+Compressing or archiving files is the act of packing one or more files and directories into a single 
+compressed file. This is commonly done to simplify file navigation and wrangling, making file transfers
+more efficient, and reducing inode quota limits. Compressing or "packing" files prior to transfer or moving 
+them to long term storage is recommended.
 
-To make a tarball of everything in the current directory:
+To create an archive on Roar Collab, the `tar` command can be used with th `-c` arguement:
+
 ```
-tar -cf myTar.tar *
+tar -cf <tarfilename>.tar <directory_or_file_list
 ```
 
-tar with option `-z` (as in `tar -czf`)
-makes a "zipped" (compressed) tarball.
-Compressing text files often makes the tarball much smaller;
-compressing binary or image files is usually pointless.
+Adding the `-z` option further compresses the archive. For example, to make a compressed archive called 
+"myTar.tar" containing everything in the current directory:
 
-To unpack a tarball (option `-x` for "extract"):
+```
+tar -czf myTar.tar *
+```
+
+To unpack an archive, use option `-x`:
+
 ```
 tar -xf myTar.gz
 ```

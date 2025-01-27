@@ -1,19 +1,14 @@
-# Installing from source
+# Using Custom Software
+
+## Installing from source
 
 Collab offers a broad range of installed open-source applications,
-but sometimes you need an application Collab doesn’t have.
-When that happens, ask the ICDS Help Desk to install it for you,
-particularly if you can make a case that others will also use it.
+but sometimes you need an application Collab doesn't have.
 
-If that doesn’t work, you may try installing the application yourself,
-in your own work or group directory.
-Depending on the application,
-and how well its source package is designed and documented,
-this can be relatively straightforward, or a total nightmare.
-
-The nightmare scenarios involve poor documentation,
-combined with the need for other packages also not installed on Collab,
-which in turn need other packages, and so on.
+Users are allowed and encouraged to compile and install their own software 
+in their storage directories. Depending on how well documented the software 
+is, installation may be straightforward or may require modification to the 
+instructions to accomodate user permission levels.
 
 ## No root access
 
@@ -25,3 +20,23 @@ This means you cannot:
 - use RPM package installers like [`yum`][yum]
 - install executables in the standard places
 [yum]: https://man7.org/linux/man-pages/man8/yum.8.html
+
+For installations that require root or administrative access, please complete a 
+[Software Request][SRF].
+
+## Where to install
+
+The question of where to install software depends heavily on who are the 
+target users of the software. For items such as R or python 
+packages or software only used by a single user, a user's home or work 
+directory would be the best choice.
+
+For software used by an entire research group, software can be placed in 
+group storage directories. Care must be taken to ensure [File Permissions](../../handling-data/file-storage/#file-permissions) 
+are set so the files are executable by the entire group.
+
+If a software package would be used by more than a single research group, 
+global installation is possible. To request this, please complete a [Software 
+Request][SRF].
+
+[SRF]: https://pennstate.service-now.com/sp?id=sc_cat_item&sys_id=e7332727dbd3e1105931aa1d13961993&sysparm_category=9f02239e0fd68b002c4900dce1050e8b

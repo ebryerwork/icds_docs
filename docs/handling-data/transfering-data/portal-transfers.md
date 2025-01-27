@@ -1,20 +1,14 @@
----
-title: File transfers on the Portal
----
+# File Transfers on the Portal
 
-## Firefox
+## Portal File Manager
 
-The Firefox browser is available either 
-from the [Portal Interactive Desktop][portalID]
-From Firefox, you can access OneDrive
-and other similar destinations,
-and perform file transfers.
-[portalID]: 06_AccessingCollab.md
+The File Manager app on the [Portal](../running-jobs/portal.md) offers a very intuitive interface for file management. 
+Files can be moved, edited, uploaded, and downloaded with relative ease using this utility. 
+Users should limit the use of the RC Portal file manager utility to dealing with small files only.
 
-## Portal Files menu
+## Uploading to the Cloud
 
-The Collab [Portal][portal] top menu under Files/Home
-opens a window that enables convenient file transfer 
-between Collab and your laptop.
-[portal]: https://rcportal.hpc.psu.edu/pun/sys/dashboard
+The Firefox browser is available from the [Portal Interactive Desktop](../running-jobs/portal.md)
 
+Once an Interactive Desktop session has been created, Firefox can be used to access popular cloud storage providers
+such as OneDrive and Google Drive.

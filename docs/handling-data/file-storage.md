@@ -1,7 +1,6 @@
 # File storage
 
-Files are stored on Roar in a central filesystem;
-Collab and Restricted filesystems are separate.
+Files are stored on Roar Collab in a central filesystem;
 
 Users have access to four directories:  home, work, group, and scratch.
 These have different purposes:
@@ -14,7 +13,8 @@ and files with a last modified time stamp older than 30 days will be *automatica
 
 Additionally, PI-owned **group** storage directories are availalbe for purchase. These are designed for collaborative work or group level software.
 
-Files in home, work, and group are backed up by a sequence of daily "snapshots" which are kept for 90 days.  To have files restored from a snapshot, email Client Support at icds@psu.edu
+Files in home, work, and group are backed up by a sequence of daily "snapshots" which are kept for 90 days. 
+To have files restored from a snapshot, email Client Support at icds@psu.edu
 
 
 ## Archive storage
@@ -60,18 +60,17 @@ Large package libraries can quickly overwhelm the home quota and cause out of sp
 This commonly occurs with directories such a
 
  - `.local` - used by Python to store user installed packages
- - `.conda` - used by Anaconda to store package caches and user-level environments
  - `.comsol` - used by Comsol
 
 These [dot files](https://missing.csail.mit.edu/2019/dotfiles/) are hidden by default. You can view
 them via the command line using the `ls -la` command.
 
 To correct the out of space error, it is recommended to move the offending directory to work and create 
-symlink pointing to the new location. For example, moving the `.conda` directory is done with the following commands:
+symlink pointing to the new location. For example, moving the `.comsol` directory is done with the following commands:
 
 ```
-mv ~/.conda $WORK/.conda
-ln -s $WORK/.conda ~/.conda
+mv ~/.comsol $WORK/.comsol
+ln -s $WORK/.comsol ~/.comsol
 ```
 
 This can be repeated for any directory in home that is causing the out of space error.

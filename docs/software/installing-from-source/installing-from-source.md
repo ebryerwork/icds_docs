@@ -1,3 +1,31 @@
+# Compiling From Source
+
+Compiling software from source is the most involved option for using software, but it gives the user the highest level of control. 
+Research computing software is often developed by academic researchers that do not place a large effort on packaging their software so that it can be easily deployed on other systems. 
+If the developer does not package the software using a package manager, then the only option is to build the software from source. 
+It is best to follow the installation instructions from the developer to successfully install the software from source.
+
+It is recommended to build software on a node with the same processor type that will be used for running the software. 
+On a compute node, running the following command displays the processor type:
+
+```
+$ cat /sys/devices/cpu/caps/pmu_name
+```
+
+Software builds are not typically back-compatible and will not run successfully on processors older than the processor used to build. 
+It is recommended to build on haswell (the oldest processor architecture on Roar) if you wish to have full compatibility across any Roar compute node. 
+To optimize for performance, however, build on the same processor on which the software runs.
+
+    | Release Date | Processor |
+    | :----: | :----: |
+    | 2013 | haswell |
+    | 2014 | broadwell |
+    | 2015 | skylake |
+    | 2019 | cascadelake |
+    | 2019 | icelake |
+    | 2023 | sapphirerapids |
+
+
 ## wget
 
 The first step is to get the source package (typically a tarball of some sort)

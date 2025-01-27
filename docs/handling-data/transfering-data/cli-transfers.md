@@ -1,10 +1,13 @@
-## Command Line Utilities
+# Command Line File Transfers
+
+Most command line utilites can be used on Roar Collab.
 
 ### sftp
 
 [`sftp`][sftp] (secure file transfer protocol) is a Unix tool
 for file transfers.  To launch sftp,
 [sftp]: https://man7.org/linux/man-pages/man1/sftp.1.html
+
 ```
 sftp <username>@<address>
 ```
@@ -86,4 +89,3 @@ For more examples, visit [Tecmint][tecmint].
      With rsync, the source is the original, and the destination is the copy.
      Don't reverse direction, or you will confuse rsync and yourself,
      and wind up clobbering or deleting files.
-

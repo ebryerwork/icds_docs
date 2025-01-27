@@ -1,4 +1,4 @@
-# Transferring files
+# Transfering files
 
 Computational workflows often require files 
 on Roar Collab, Roar archival storage, 
@@ -6,7 +6,7 @@ OneDrive, or your laptop or desktop machine
 to be transferred -- copied from one place to another.
 
 Transfers to and from Roar Restricted follow a special protocol,
-described [here](16_RoarRestricted.md).
+described [here](../../roar-restricted/rr-handling-data.md).
 
 Multiple tools exist to perform these file transfers.
 No single tool is best for all cases;

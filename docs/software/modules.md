@@ -1,32 +1,13 @@
 # Software modules
 
-Collab provides many different applications in its software stack,
-which consists of two parts:
+To manage multiple software packages, including different versions of the same software, 
+ICDS uses the [Lmod](https://lmod.readthedocs.io/en/latest/) environment module system to 
+prevent conflicts and compartmentalize software and compiler usage.
 
-- preloaded software, available immediately on login;
-- modular software, which must be loaded to be used.
+Users can use the `module` command combined with different subcommands to access and use 
+pre-installed software.
 
-Not all software is preloaded,
-because conflicts inevitably arise 
-between different versions of libraries
-used by different software packages.
-Loading only certain software by modules
-is an attempt to manage this chaos.
-
-To find out if an application is available, use `which`:
-```
-which <appName>
-```
-which returns the path to the executable `<appName>`,
-if it exists on your `$PATH`.
-(The $PATH variable contains the set of directories
-where Unix looks for executables;
-defaults for $PATH are initialized at logon.)
-
-If which doesn’t find the app you are looking for,
-it may need to be loaded via the `module` system.
-Here are the various commands to search for,
-get info on, list, load, and unload modules:
+## List of Common module commands
 
 | Command | Description |
 | ---- | ---- |
@@ -41,10 +22,11 @@ get info on, list, load, and unload modules:
 | `module use <path>` | Add a path to `$MODULEPATH` |
 
 
-What module files mainly do is add various directories 
-to the paths Unix searches when looking for applications.
-To see what a given modulefile does, use `module show <moduleName>`.
-
 !!! tip ""
      Batch files must include `module load` commands to load the modules they need.
      Modules you have loaded when you submit a job with `sbatch` are not inherited by the job.
+
+!!! tip ""
+     `module show <module_name>` provides detailed information on what changes are made to the 
+     user environment when a module is loaded, including changes to environmental variables such as 
+     $PATH and $LD_LIBRARY_PATH.

@@ -15,6 +15,7 @@ Jobs submitted using a credit account can utilize a variety of the CPU and GPU r
 Unlike an [allocation account](allocations.md), a credit account job must also specify the hardware it wants to utilize.
 
 This is done by selecting a hardware partition to run on. Available options are:
+
 - `basic`: Basic core resources (4 GB/core, Ethernet networking)
 - `standard`: Standard core resources (8 GB/core, Infiniband connectivity)
 - `himem`: High memory core resources (20 GB/core, Infiniband connectivity)
@@ -121,6 +122,7 @@ Total credit billing for GPU jobs will be a combination of the CPU and GPU usage
 #### Requesting specific GPU models
 
 There are several different models of GPUs available on RC, most of which can be used for credit account jobs. These include:
+
 - `p100` - NVIDIA P100 GPU (1 card per node)
 - `v100` - NVIDIA V100 GPU (1 card per node?)
 - `a100` - NVIDIA A100 GPU (2 cards per node)

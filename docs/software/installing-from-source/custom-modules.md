@@ -1,15 +1,20 @@
-# Creating custom module files
+# Custom module Files
 
-ICDS uses the lmod Environmental Module system. The contents of a modulefile are:
+ICDS uses the lmod Environmental Module system. This system is highly exandable and allow 
+users to create and use their own module files.
 
-- "whatis" directives,
-that supply information for `module info` and `module spider`;
-- possibly some "load" commands 
-to load other modules needed by the given module;
-- changes to various path variables,
-so the system can find the software.
+## Module File Structure
 
-Here is an example:
+Common components of a modulefile are:
+
+- **whatis():** Supplies information for `module info` and `module spider` output
+- **load():** Loads other modules when this module is loaded
+- **prepend_path():** Modifies environmental variables in the user's environment. Common ones 
+include `PATH`, `LD_LIBRARY_PATH`, and `CPATH`.
+
+### Example Module File
+
+Here is the contents of the `gromacs/2024.3` module file:
 
 ```
 whatis([[Name : gromacs]])
@@ -45,13 +50,18 @@ prepend_path('CPATH', pathJoin(base,'include'))
 prepend_path('PKG_CONFIG_PATH', pathJoin(base,'lib64/pkgconfig'))
 ```
 
-To use your custom modules, use the `module use` command to specify the location of your module files:
+## Loading Custom modules
+
+The `module use` command is used to specify the location of module files:
 
 ```
 module use <module_directory>
 ```
 in which `<module_directory>` is the path to your modules.
 
-These files can be placed in group storage to make them accessable to all group members.
+Adding the `module use` line to your `.bashrc` file will make the modules automatically accessable 
+upon login.
 
-Adding the `module use` line to your `.bashrc` file makes the modules accessable upon login.
+Creating module files within group storage directories can make them accessable to all group members. 
+Ensure that the correct [file permissions](../../handling-data/file-storage/#file-permissions) are set 
+to allow all group members to read and execute the module files.

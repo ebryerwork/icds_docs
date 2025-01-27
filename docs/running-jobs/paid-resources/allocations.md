@@ -15,7 +15,7 @@ the Interactive Session request form.
 
 If the account does not appear in the "Account" drop down box, you may need to be added to the allocation. Allocation 
 coordinators can [add and remove users from their allocations](managing-accounts.md), or contact the helpdesk at
-[icds@psu.edu] to request a user be added.
+(icds@psu.edu) to request a user be added.
 
 
 ## Using an Allocation on the Command Line

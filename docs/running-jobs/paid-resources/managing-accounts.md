@@ -32,10 +32,10 @@ $ sacctmgr remove user account=<compute-account> name=<userid>
 
 Group storage access is managed by collab groups. Each account owner has a collab group that has access 
 to their group storage directory by default. To add and remove users from a collab group, please have the 
-group owner send in a request to [icds@psu.edu].
+group owner send in a request to [mailto:icds@psu.edu].
 
 For custom group storage configurations including multiple collab groups or varying subdirectory permissions, 
-please contact [icds@psu.edu] for more information.
+please contact (mailto:icds@psu.edu) for more information.
 
 ### User-Managed Groups
 

@@ -15,16 +15,16 @@ Containers change the user space into a swappable component, and provide the fol
 - Performance: Similar performance characteristics as native applications
 - Compatibility: Open standard that is supported on all major Linux distributions
 
-If containers are new to you, we recommend the [Introduction to Containers on HPC lesson]
-(https://pawseysc.github.io/hpc-container-training/) developed by the [Pawsey Supercomputer 
-Centre](https://pawsey.org.au/).
+If containers are new to you, we recommend the [Introduction to Containers on HPC 
+lesson](https://pawseysc.github.io/hpc-container-training/) developed by the [Pawsey 
+Supercomputer Centre](https://pawsey.org.au/).
 
 Apptainer is a secure container platform designed for HPC use cases and is available on Roar. 
 
 Containers (or images) can either be pulled directly from a container repository or can be 
 built from a definition file. 
 
-!!! warning Building containers requires root privileges.
+!!! warning "Building containers requires root privileges."
      Containers are built on your personal device and can be deployed on Roar. Alternatively, 
      the `--fakeroot` option can be used to build containers without root privileges as described in 
      Apptainer's documentation of the [fakeroot feature](https://apptainer.org/docs/user/main/fakeroot.html#usage).

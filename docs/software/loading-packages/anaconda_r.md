@@ -17,4 +17,3 @@ Alternatively, the creation of this environment can be completed with a single l
 ```
 (base) $ conda create -n r_env r-base r-tidyverse
 ```
-

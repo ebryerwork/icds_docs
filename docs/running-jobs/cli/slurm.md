@@ -32,7 +32,7 @@ also use resource directives through the drop down menus in the portal interface
 The following table lists some of the most commonly used resource directives.
 
 | Short option | Long option | Description |
-| ---- | ---- |
+| ---- | ---- | ---- | ---- | 
 | `-J` | `--job-name` | Specify a name for the job |
 | `-A` | `--account` | Charge resources used by a job to a specified account |
 | `-p` | `--partition` | Request a partition for the resource allocation |
@@ -47,6 +47,7 @@ The following table lists some of the most commonly used resource directives.
 | `-o` | `--output` | Connect script's standard output to a non-default file |
 | NA | `--requeue` | Specify that the batch job should be eligible for requeuing |
 | NA | `--exclusive` | Require exclusive use of nodes reserved for job |
+
 
 * Constraits are only available for paid resources.
 

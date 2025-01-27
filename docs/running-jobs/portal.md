@@ -17,11 +17,13 @@ To avoid errors, the hardware requested must be accompanied by a compatable acco
 Here are some common use cases and the necessary settings:
 
 To use the open queue:
+
  - Account: open
  - Partition: open
  - Node type: standard
 
 To use the interactive nodes:
+
  - Account: open
  - Partition: intr
  - Node type: Interactive
@@ -29,12 +31,15 @@ To use the interactive nodes:
 To use paid resources:
  - Account: your_allocation_id
  - Partition: sla-prio
- - Node type: must match the resources in yqour allocation
+ - Node type: must match the resources in your allocation
 
-!!! warning All jobs must fit inside the resource limits of the partition they are running on
-     Open queue jobs must not exceed 100 cores and 800 GB memory
-     Interactive jobs must not exceed 4 cores and 24 GB memory
-     Paid resource limits are definied by the allocation limits
+!!! warning "All jobs must fit inside the resource limits of the partition they are running on"
+     If a job requests resources that exceed the partition limits, they will not begin.
+
+
+- Open queue jobs must not exceed 100 cores and 800 GB memory
+- Interactive jobs must not exceed 4 cores and 24 GB memory
+- Paid resource limits are definied by the allocation limits
 
 ## Custom Environments
 

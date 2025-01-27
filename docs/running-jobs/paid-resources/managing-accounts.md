@@ -1,31 +1,4 @@
-### Compute Allocations
-
-A paid compute allocation provides access to specific compute resources for an individual user or for a group of users. 
-A paid compute allocation provides the following benefits:
-
-- Guaranteed job start time within one hour
-- No job preemption for non-burst jobs
-- Burst capability up to 4x of the allocation's compute resources
-
-A compute allocation results in the creation of a compute account on Roar. 
-The `mybalance` command on Roar lists accessible compute accounts and resource information associated with those compute accounts. 
-Use the `mybalance -h` option for additional command usage information.
-
-To submit a job to a paid compute account, supply the `--account` or `-A` resource directive with the compute account name and supply the `--partition` or `-p` resource directive with `sla-prio`:
-
-```
-#SBATCH -A <compute_account>
-#SBATCH -p sla-prio
-```
-
-To enable bursting, if enabled for the compute account, supply the `--partition burst` or `-p burst` resource directive.
-Furthermore, the desired level of bursting for the job (`burst2x`, `burst3x`, `burst4x`, and so on) must be specified using the `--qos` resource directive. To enable 2x bursting for a batch job, for example, use the following resource directives:
-
-```
-#SBATCH -A <compute_account>
-#SBATCH -p burst
-#SBATCH --qos burst2x
-```
+# Managing Paid Accounts
 
 To list the available compute accounts and the associated available burst partitions, use the following command:
 
@@ -34,7 +7,7 @@ $ sacctmgr show User $(whoami) --associations format=account%30,qos%40
 ```
 
 
-#### Modifying Allocation Coordinators
+## Modifying Allocation Coordinators
 
 The principal contact for a compute allocation is automatically designated as a coordinator for the compute account associated with the compute allocation. 
 A coordinator can add or remove another coordinator with the following command:
@@ -45,7 +18,7 @@ $ sacctmgr remove coordinator account=<compute-account> name=<userid>
 ```
 
 
-#### Adding and Removing Users from an Allocation
+## Adding and Removing Users from an Allocation
 
 A coordinator can then add and remove users from the compute account using the following:
 
@@ -55,38 +28,40 @@ $ sacctmgr remove user account=<compute-account> name=<userid>
 ```
 
 
-#### Available Compute Resources
+## Managing Access to Group Storage
 
-A paid compute allocation will typically cover a certain number of cores across a certain timeframe. 
-The resources associated with a compute allocation are in units of **core-hours**. 
-The compute allocation has an associated **Limit** in **core-hours** based on the initial compute allocation agreement. 
-Any amount of compute resources used on the compute allocation results in an accrual of the compute allocation's **Usage**, again in **core-hours**. 
-The compute allocation's **Balance** is simply the **Limit** minus its **Usage**.
+Group storage access is managed by collab groups. Each account owner has a collab group that has access 
+to their group storage directory by default. To add and remove users from a collab group, please have the 
+group owner send in a request to [icds@psu.edu].
 
-```
-Balance [core-hours] = Limit [core-hours] - Usage [core-hours]
-```
+For custom group storage configurations including multiple collab groups or varying subdirectory permissions, 
+please contact [icds@psu.edu] for more information.
 
-At the start of the compute allocation, 60 days-worth of compute resources are added to the compute allocation's **Limit**. 
-Each day thereafter, 1 day-worth of compute resources are added to the **Limit**.
+### User-Managed Groups
 
-```
-Initial Resources   [core-hours] = # cores * 24 hours/day * 60 days
-Daily Replenishment [core-hours] = # cores * 24 hours/day
-```
-
-The daily replenishment scheme continues on schedule for the life of the compute allocation. 
-Near the very end of the compute allocation, the replenishment schedule may be impacted by the enforced limit on the maximum allowable **Balance**. 
-The **Balance** for a compute allocation cannot exceed the amount of compute resources for a window of 91 days and cannot exceed the amount usable by a 4x burst for the remaining life of the compute allocation. 
-This limit is only relevant for the replenishment schedule nearing the very end of the compute allocation life.
+If the owner of a group space would like more control over the access groups or would like to designate a group coordinator, then it is recommended that the owner [create a User Managed Group (UMG)](https://pennstate.service-now.com/sp?id=kb_article_view&sysparm_article=KB0011865&sys_kb_id=81102ada87cedd10d7bf7485dabb35b0&spa=1). 
+The UMG allows a user to manage the group access list and group roles directly through the User Managed Group functionality through [Penn State Accounts Management](https://accounts.psu.edu/manage). 
+Select the following options and adhere to the following recommendations when creating the UMG:
 
 ```
-Max Allowable Balance [core-hours] = min( WindowMaxBalance, 4xBurstMaxBalance )
-
-where
-
-WindowMaxBalance  [core-hours] = # cores * 24 hours/day * 91 days
-4xBurstMaxBalance [core-hours] = # cores * 24 hours/day * # days remaining * 4 burst factor
+Group Function:     Functional
+Campus:             University Park
+Display Name:       icds.rc.<umg_name>
+                    e.g. icds.rc.abc1234_collab
+Email:              Not necessary for RC use
+Security:           Sync with Enterprise Active Directory is required
 ```
 
+ICDS filters UMGs for display names that begin with `icds.rc.`, so any UMGs created with this prefix will automatically appear within RC. 
+It may take up to 15 minutes for a newly created UMG to appear on RC. 
+To verify that a UMG is available on RC, run the following command on RC:
+
+```
+$ getent group icds.rc.<umg_name>
+```
+
+After a UMG is created, the owner can submit a request to **icds@psu.edu** to associate this UMG with the `<owner>_collab` group. 
+Once the association between the UMG and the `<owner>_collab` group is made, then the group owner has full dynamic control over the access and roles of the `<owner>_collab` group by modifying the UMG membership. 
+After this single request to ICDS, the owner no longer must submit requests to modify group membership and instead can manage the group directly. 
+Note that any user added as a UMG member that *does not* have an active Roar account will not have access to Roar or any data on Roar until that user has an active Roar account.
 

@@ -1,6 +1,4 @@
----
-title: System Overview
----
+# System Overview
 
 Compute clusters like Roar serve many purposes:
 
@@ -35,7 +33,7 @@ which gives you access to the Portal, and to batch jobs on vintage hardware.
 But to use any of the newer, more powerful hardware,
 you need a paid [charge account](05_ChargeAccounts.md).
 
-## Two ways to access 
+## Accessing Roar
 
 Roar Collab can be accessed in two ways: via the web-based Collab Portal <br>
 <https://rcportal.hpc.psu.edu/pun/sys/dashboard> <br>
@@ -60,22 +58,4 @@ for users accustomed to laptops (especially Linux laptops).
 From its Terminal application, users have access to the full capabilities of Collab, needed to prepare and submit jobs.
 
 Collab can also be accessed via SSH (Secure SHell), from a terminal application on a laptop. 
-For more information about Portal and SSH access, see [Accessing Collab](06_AccessingCollab.md).
-
-
-## Roar uses Linux
-
-The operating system for Roar is Red Hat Enterprise Linux 8 ([RHEL8](https://www.redhat.com/en),
-a text-based operating system where users interact with the system 
-by typing commands, called a command line interface (CLI). Many prefer the CLI 
-interface because it is fast and responsive and many tasks can be automated with scripts.
-
-To take full advantage of the functionality of Roar, it is recommended that one be 
-familiar with navigating in the Linux CLI and capable of performing the following tasks:
- - Navigating the file system using commands such as `cd` and `ls`
- - Viewing and editing text files using commands such as `cat` and `nano`
- - Searching for files and their content using `grep` and `find`
-
-To learn more about any of the above, we recommend following the [HPC Carpentry lesson "Introduction 
-to Using the Shell in a HPC Context"](https://www.hpc-carpentry.org/hpc-shell/). The lesson contents 
-can be followed directly once a terminal session has been establshed. 
+For more information about Portal and SSH access, see [Connecting to Roar Collab](../getting-started/connecting-to-rc).

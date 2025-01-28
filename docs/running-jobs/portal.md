@@ -4,6 +4,8 @@ ICDS offers an interactive web portal powered by [Open OnDemand](https://openond
 which allows users access to graphical file handling features, graphical desktop software and
 interfaces, and popular Integrated Developer Environments (IDEs) such as Jupyter Notebooks and RStudio.
 
+To use the Web Portal, navigate to <https://portal.hpc.psu.edu>
+
 For an in-depth overview of Open OnDemand features, see [this tutorial video](https://youtu.be/w1hbOppyUUc?si=Ubv0ymfeZmnD7Kzr)
 developed by [The Yale Center for Research Computing](https://research.computing.yale.edu/)
 
@@ -25,15 +27,17 @@ To use the open partition:
  - Account: open
  - Sbatch options: --partition=open
 
-To use an [allocation]:
+To use an [allocation](paid-resources/allocations.md):
+
  - Account: <your_allocation_id>
  - Sbatch options: --partition=sla-prio
 
-To specify a hardware partition for (credit accounts)
+To specify a hardware partition for [credit accounts](paid-resources/credit-accounts.md):
+
  - Account: <your_credit_account>
  - Sbatch options: --partiton=<hardware_partition>
 
-Available hardware partitions include `basic`, `standard`, and `himem`.
+For details regarding available hardware partitions, see [Availalbe Hardware Partitions](paid-resources/credit-accounts.md/#available-hardware-partitions)
 
 !!! warning "All jobs must fit inside the resource limits of the partition they are running on"
      If a job requests resources that exceed the partition limits, they will not begin.

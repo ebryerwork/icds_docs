@@ -1,4 +1,4 @@
-## Anaconda
+# Using Anaconda
 
 Anaconda is a "package manager",
 originally developed for Python, 

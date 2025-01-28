@@ -13,29 +13,30 @@ Interactive jobs and scheduled and managed by Slurm and require resource definit
 batch jobs. This means the amount of cores, memory (RAM), and run-time need to be specified before
 jobs can be started.
 
+Most of these can be specified using the drop down and number entry fields. However, it is possible to add 
+more specialized resource requests by adding custom [directives](../cli/slurm.md/#slurm-resource-directives) by 
+selecting "Enable advanced Slurm options" and entering the directives into the Sbatch options text box.
+
 To avoid errors, the hardware requested must be accompanied by a compatable account, partition, and node type.
 Here are some common use cases and the necessary settings:
 
-To use the open queue:
+To use the open partition:
 
  - Account: open
- - Partition: open
- - Node type: standard
+ - Sbatch options: --partition=open
 
-To use the interactive nodes:
+To use an [allocation]:
+ - Account: <your_allocation_id>
+ - Sbatch options: --partition=sla-prio
 
- - Account: open
- - Partition: intr
- - Node type: Interactive
+To specify a hardware partition for (credit accounts)
+ - Account: <your_credit_account>
+ - Sbatch options: --partiton=<hardware_partition>
 
-To use paid resources:
- - Account: your_allocation_id
- - Partition: sla-prio
- - Node type: must match the resources in your allocation
+Available hardware partitions include `basic`, `standard`, and `himem`.
 
 !!! warning "All jobs must fit inside the resource limits of the partition they are running on"
      If a job requests resources that exceed the partition limits, they will not begin.
-
 
 - Open queue jobs must not exceed 100 cores and 800 GB memory
 - Interactive jobs must not exceed 4 cores and 24 GB memory
@@ -43,5 +44,17 @@ To use paid resources:
 
 ## Custom Environments
 
-To use custom software, such as Anaconda environments or custom software modules,
+The Jupyter and RStudio Server Interactive Apps allow the use of custom software or environment options. 
+To utilize these, select "Use custom environment" under Environment type and enter commands there to be ran 
+once the job launches.
 
+For example, to use a custom Anaconda environment named `my_env`, the following text should be included in 
+the "Environment setup" box:
+
+```
+module load anaconda
+conda activate myenv
+```
+
+For more details on using Anaconda environments within your Portal jobs, please see [Anaconda on 
+Portal](../software/loading-packages/anaconda.md/#anaconda-on-portal).

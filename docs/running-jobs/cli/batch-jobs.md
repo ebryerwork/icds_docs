@@ -1,163 +1,138 @@
-# Batch jobs
 
-For compute jobs that take hours or days to run,
-instead of sitting at the terminal waiting for the results,
-we submit a "batch job" to the queue manager,
-which runs the job when resources are available.
+# Batch Jobs
 
-On Roar, the queue manager is called SLURM 
-(Simple Linux Utility for Resource Management).  
-Besides `salloc` for interactive jobs
-(see [Interactive jobs](06_AccessingCollab.md#interactive-jobs)),
-here are the basic SLURM commands
-(with their equivalents under PBS, the previous queue system):
+Jobs submitted to SLURM are in the form of a "batch script". A batch script is a shell script 
+that executes commands, with a header of [Slurm directives](slurm.md/#slurm-resource-directives) 
+which are prefixed by #SBATCH.
 
-| Command | Effect| PBS equivalent |
-| ---- | ---- | ---- |
-|`sbatch <script>` | submit batch job `<script>` | `qsub <script>` |
-| `squeue -u <userid>` | check on jobs submitted by `<userid>` | `qstat -u <userid>` |
-| `scancel <jobID>` | cancel the job | `qdel <jobID>` |
+The three main portions of a batch script are:
+ - **The shebang:** This defines the interpreter for the batch script. The most common one used is `#!/bin/bash` 
+for the Bash interpreter.
+ - **[Slurm directives](slurm.md/#slurm-resource-directives):** These are configuration settings used by 
+the scheduler to allocate resources for your job. Required ones are `--mem`, `--time`, and `--ntasks`, 
+but can be highly customized.
+ - **Script commands:** commands in the form of a shell script to be executed once the job begins.
 
-When you execute `sbatch myJob.sh`, SLURM responds with something like
-```
-Submitted batch job 25789352
-```
-To check on your jobs, execute `squeue -u <userID>`; SLURM responds with something like
-```
-JOBID		PARTITION	NAME		USER	ST	TIME	NODES	NODELIST(REASON)
-25789352	open 		myJob.sh	abc123	R	1:18:31	1		p-sc-2008
-```
-Here ST = status:  PD = pending, R = running, C = completed.  
-To cancel the job, execute `scancel 25789352`.
+## Batch Script
 
-## Batch scripts
-
-Jobs submitted to SLURM are in the form of a "batch script".
-A batch script is a shell script that executes commands,
-with a preamble of comments
-that are SLURM directives `#SBATCH ...` to specify:
-
-- an **allocation** to charge for the job;
-- a **queue** (qos) to submit the job to;
-- a **partition** (type of nodes) to run on;
-- nodes, cores, memory, GPUs, and time;
-- and other job-related parameters.
-
-An example is:
+Below is a sample Slurm script for running a Python script:
 
 ```
 #!/bin/bash
-#SBATCH --account=<alloc>
-#SBATCH --qos=regular
-#SBATCH --partition=basic
+
+#SBATCH --job-name=apythonjob
+#SBATCH --partition=open
 #SBATCH --nodes=1
-#SBATCH --ntasks=8
-#SBATCH --mem=1gb
-#SBATCH --time=4:00:00
-#SBATCH --job-name=<name>
+#SBATCH --ntasks=1
+#SBATCH --mem=4G
+#SBATCH --time=1:00:00
 
-# as usual, cd to where submitted
-cd $SLURM_SUBMIT_DIR
-
-module load gromacs-2019.6  # need this module
-
-SYSTEM=$SLURM_SUBMIT_DIR/System
-gmx grompp -f $SYSTEM/nvt.mdp -c $SYSTEM/min.gro -p $SYSTEM/testJob.top -o nvt.tpr 
-gmx mdrun -nt 8 -nb cpu -deffnm nvt
+python pyscript.py
 ```
 
-Everything after the last `#SBATCH` are commands to be executed;
-lines with `#` other than `#SBATCH` are ordinary bash script comments.
+To submit a batch script, the [sbatch](https://slurm.schedmd.com/sbatch.html) command is used. For example, to submit a batch script called `pyjob.slurm`:
 
-Use `module load` just as you would interactively
-to load any modules the batch script needs.
-The first line `#!/bin/bash` executes your `.bashrc` file,
-and thus performs any initializations it contains
-(most importantly, loading modules).
+```
+$ sbatch pyjob.slurm
+```
 
-For examples of common resource requests,
-see [Batch examples](09_BatchExamples.md).
+To check the status of queued and running jobs, use the [squeue](https://slurm.schedmd.com/squeue.html) command:
 
-**The hardware you reserve by choosing a partition,
-specifying numbers of nodes and cores, or requesting a GPU,
-affects the cost of your job; see [Prices](05_ChargeAccounts.md/#prices).**
+```
+$ squeue -u <userid>
+```
 
-## Queues
+## Compute Accounts and Partitions
 
-The directive `#SBATCH --qos=<queue>` submits batch jobs to a queue, 
-or QoS = "Quality of Service" in SLURM-speak.
-(Queues are like classes of service on an airline flight:
-first, business, economy,...)
+### Open Queue
 
-Collab has six queues:  open, regular, debug, express, and warp.  
-Each serves a different purpose, and has different restrictions.
+All users have access to the `open` compute account, which allows users to submit jobs free of charge. 
 
-| queue (QOS) | description | restrictions |
+The `open` queue allows access to both the `open` and `interactive` partitions, which are subject to the following 
+usage limits:
+
+| Partition | Max Resources Per User | Max Job Run Time | 
 | ---- | ---- | ---- |
-| open | no-cost access | Portal and vintage hardware only |
-| regular | for "normal" jobs | time < 14 days |
-| debug	| for testing, debugging, <br> quick analysis | time < 1 hour |
-| express | for rush jobs; <br> 1.5x price | time < 14 days |
-| warp | for emergency jobs; <br> 3x price | time < 7 days |
+| `open` | cpu=100,mem=800G | 48 hours |
+| `interactive` | cpu=4,mem=64G | 48 hours |
 
-Express and warp queues cost more,
-but increase a job’s priority so it runs sooner.
 
-## Job output files
-
-By default, batch job standard output and standard error
-are both directed to `slurm-%j.out`, where `%j` is the jobID.
-But output and error filenames can be customized:
-`#SBATCH -e = <file>` redirects standard error to `<file>`,
-and ` #SBATCH -o` likewise redirects standard output.
-
-SLURM variables `%x` (job name) and `%u` (username)
-are useful for this purpose.  For example,
+To specify a partition within your batch job, use the `--partition` directive. For example, to use the 
+`open` partition within your batch script, add the following line to your Slurm directives:
 ```
-#SBATCH -eo = %u_%x.out
+#SBATCH --partition=open
 ```
-writes both standard output and error to `<username>_<jobname>.out`.
 
-## Resource usage
+### Paid Accounts
 
-The SLURM command [`sacct`][sacct]
-reports the resources used by a completed batch job,
-which helps users learn what resources to request next time.
-At the bottom of a batch script, the command
-[sacct]: https://slurm.schedmd.com/sacct.html
+For resources needs that do not fit well into the open queue, ICDS offers two different paid account options:
+
+- [Allocations](../running-jobs/paid-resources/allocations.md): Reserved hardware allowing for instanteous usage at a 
+flat, monthly rate
+- [Credit/Pay-per-use](../running-jobs/paid-resources/credit-accounts.md): Flexible use model allowing for a variety of 
+hardware use
+
+A paid compute allocation provides access to specific compute resources for an individual user or for a group of users. 
+
+## GPUs
+
+Access to GPUs requires a paid allocation or credit account. Requesting a GPU involves the scheduler directive 
+`--gpus`. For example, adding the following line to your Slurm directives will request one GPU is allocated:
 
 ```
-sacct -j $SLURM_JOB_ID --format=JobID,JobName,MaxRSS,Elapsed,TotalCPU,State
+--gpus=1
 ```
-generates a report in the batch output file of resources used.
-(`$SLURM_JOB_ID` is a variable that returns the jobID of the batch job.)
-As in the example, sacct takes formatting options to control what it prints;
-`sacct --helpformat` lists all the options.
 
-## Timing jobs[](#timing-jobs)
+An account will need to be specified to use a GPU. For more information on requesting GPUs within your jobs, 
+please check the details that correspond to your specific account type:
 
-It is good practice to test a new workflow
-by running small short jobs before submitting big long jobs.
-To help plan your compute usage, 
-it is helpful to time such test jobs.
+ - [Requesting GPUs with Allocations](../running-jobs/paid-resources/allocations.md/#requesting-gpus)
+ - [Requesting GPUs with Credit Accounts](../running-jobs/paid-resources/credit-accounts.md/#requesting-gpus_1)
 
-Many well-designed applications display timing information
-at the end of the log files they generate.
-If this is not the case for your application,
-you can find out how long a batch job takes
-by sandwiching the commands you execute
-between [`date`][date] commands:
-[date]: https://man7.org/linux/man-pages/man1/date.1.html
+!!! warning "Requesting GPU resources for a job is only beneficial if the software running within the job is GPU-enabled."
+
+
+## Job Management and Monitoring
+
+### squeue
+
+A user can find the job ID, the assigned node(s), and other useful information using the `squeue` command. 
+Specifically, the following command displays all running and queued jobs for a specific user:
+
 ```
-date
-<commands>
-date
+$ squeue -u <user>
 ```
-Your batch standard output file will then contain two "timestamps",
-from which you can determine the running time.
-To time a single command in a batch file, use [`time`][time]:
-[time]: https://www.man7.org/linux/man-pages/man1/time.1.html
+
+A useful environment variable is the `SQUEUE_FORMAT` variable which enables customization of the details shown by the `squeue` command. 
+This variable can be set, for example, with the following command to provide a highly descriptive `squeue` output:
+
 ```
-time <command>
+$ export SQUEUE_FORMAT="%.9i %9P %35j %.8u %.2t %.12M %.12L %.5C %.7m %.4D %R"
 ```
-which will write timing information to standard output.
+
+Further details on the usage of this variable are available on Slurm's [squeue](https://slurm.schedmd.com/squeue.html) documentation page. 
+
+### scontrol
+
+Another useful job monitoring command is:
+```
+$ scontrol show job <jobid>
+```
+
+Also, a job can be cancelled with
+```
+$ scancel <jobid>
+```
+
+### Monitoring running jobs
+
+Valuable information can be obtained by monitoring a job on the compute node(s) as the job runs. 
+
+Use the [squeue](#squeue) command to identify which node(s) the job is running on, then use `ssh` to connect to 
+the node directly. Once connected, the `top` and `ps` utilities can be used to monitor runnng processes on the node.
+
+```
+$ ssh <comp-node-id>
+$ top -Hu <user>
+$ ps -aux | grep <user>
+```

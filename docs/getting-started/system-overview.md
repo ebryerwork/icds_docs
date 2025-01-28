@@ -58,4 +58,4 @@ for users accustomed to laptops (especially Linux laptops).
 From its Terminal application, users have access to the full capabilities of Collab, needed to prepare and submit jobs.
 
 Collab can also be accessed via SSH (Secure SHell), from a terminal application on a laptop. 
-For more information about Portal and SSH access, see [Connecting to Roar Collab](../getting-started/connecting-to-rc).
+For more information about Portal and SSH access, see [Connecting to Roar Collab](connecting-to-rc.md).

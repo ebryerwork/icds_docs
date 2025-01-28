@@ -8,30 +8,7 @@ to manage installation of packages.
 One such software platform is R,
 a widely used application for statistical analysis and plotting,
 which is greatly extensible by loading packages.
-To use Anaconda to manage the installation of R,
-first load its module: 
-```
-module load anaconda
-```
-Next, create an Anaconda "environment"
-(set of loaded applications and packages),
-that contains R as a "base":
-```
-conda create -y -n <environmentName> r-base
-```
-If you want some R package always to be loaded,
-include it in the list of packages:
-```
-conda create -y -n <environmentName> r-base r-plot3d r-ggplot
-```
-To activate an Anaconda environment:
-```
-conda activate <environmentName>
-```
-Within an active environment, to load a package, execute
-```
-conda install <package>
-```
+
 This table summarizes useful Anaconda commands:
 
 | Command | Description |
@@ -47,6 +24,40 @@ This table summarizes useful Anaconda commands:
 | `conda search <package>` | Searches for a package |
 | `conda env export > env_name.yml` | Save the active environment to a file |
 | `conda env create –f env_name.yml` | Loads an environment from a file |
+
+
+## Anaconda Example: R packages
+
+To use Anaconda to manage the installation of R, first load its module: 
+```
+module load anaconda
+```
+
+Next, create an Anaconda "environment" (set of loaded applications and packages),
+that contains R as a "base":
+
+```
+conda create -y -n <environmentName> r-base
+```
+
+If you want some R package always to be loaded, include it in the list of packages:
+
+```
+conda create -y -n <environmentName> r-base r-plot3d r-ggplot
+```
+
+To activate an Anaconda environment:
+
+```
+conda activate <environmentName>
+```
+
+Within an active environment, to load a package, execute
+
+```
+conda install <package>
+```
+
 
 ## Anaconda in batch scripts
 

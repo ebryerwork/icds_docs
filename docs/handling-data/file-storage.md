@@ -14,7 +14,7 @@ and files with a last modified time stamp older than 30 days will be *automatica
 Additionally, PI-owned **group** storage directories are availalbe for purchase. These are designed for collaborative work or group level software.
 
 Files in home, work, and group are backed up by a sequence of daily "snapshots" which are kept for 90 days. 
-To have files restored from a snapshot, email Client Support at icds@psu.edu
+To have files restored from a snapshot, email Client Support at <icds@psu.edu>.
 
 
 ## Archive storage
@@ -24,9 +24,9 @@ Archive is only accessible via the [Globus][globus] web interface,
 so access is not quick or convenient.
 If you store a directory that contains many files, 
 you should pack the directory into a single file with `tar`
-(see [Packing files](12_TransferringFiles.md#packing-files))
+(see [Creating File Archives using tar](managing-files/archives.md))
 before transferring.
-[globus]: 12_TransferringFiles.md#globus
+[globus]: transfering-data/globus.md
 
 !!! warning "Archive storage is not suitable for storing protected data."
      If you are working with data or software that must adhere to regulatory requirements

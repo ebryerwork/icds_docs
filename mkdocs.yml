@@ -32,11 +32,11 @@ nav:
              - handling-data/managing-files/managing-files.md
              - handling-data/managing-files/searching-files.md
              - handling-data/managing-files/archives.md
-        - Transfering Data: 
-             - handling-data/transfering-data/transfer-overview.md
-             - handling-data/transfering-data/globus.md
-             - handling-data/transfering-data/portal-transfers.md
-             - handling-data/transfering-data/cli-transfers.md
+        - Transferring Data: 
+             - handling-data/transferring-data/transfer-overview.md
+             - handling-data/transferring-data/globus.md
+             - handling-data/transferring-data/portal-transfers.md
+             - handling-data/transferring-data/cli-transfers.md
     - Using Software:
         - Using Installed Software: software/modules.md
         - Using Custom Software:

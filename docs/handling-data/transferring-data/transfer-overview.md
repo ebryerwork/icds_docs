@@ -1,4 +1,4 @@
-# Transfering files
+# Transferring files
 
 Computational workflows often require files 
 on Roar Collab, Roar archival storage, 

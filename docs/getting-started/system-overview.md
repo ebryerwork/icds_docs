@@ -10,7 +10,7 @@ Compute clusters like Roar serve many purposes:
 Roar consists of two clusters:  **Roar Collab**, and **Roar Restricted**.
 Roar Collab is for general use;
 Roar Restricted is only for users working with sensitive data requiring extra security provisions.  
-For details, see the [Roar Restricted](16_RoarRestricted.md) addendum.
+For details, see the [Roar Restricted](../roar-restricted/rr-getting-started.md) addendum.
 
 ## Architecture
 
@@ -23,15 +23,16 @@ Collab consists of different parts, connected together by networks:
 - **scratch storage** for temporary files; and 
 - **compute nodes**, of several different types.
 
-![architecture](img/RCUserFlowDiagram.png)
+![architecture](../img/RCUserFlowDiagram.png)
 
 ## Accounts
 
-To log on to Collab, you need a [login account](04_LoginAccounts.md).
+To log on to Collab, you need a [login account](connecting-to-rc.md/#setting-up-a-login-account).
 To work on Collab, you can use the open queue at no cost,
 which gives you access to the Portal, and to batch jobs on vintage hardware.
 But to use any of the newer, more powerful hardware,
-you need a paid [charge account](05_ChargeAccounts.md).
+you need a paid [allocation](../running-jobs/paid-resources/allocations.md) or 
+[credit account](../running-jobs/paid-resources/credit-accounts.md).
 
 ## Accessing Roar
 

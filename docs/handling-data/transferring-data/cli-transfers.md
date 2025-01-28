@@ -2,7 +2,7 @@
 
 Most command line utilites can be used on Roar Collab.
 
-### sftp
+## sftp
 
 [`sftp`][sftp] (secure file transfer protocol) is a Unix tool
 for file transfers.  To launch sftp,
@@ -66,10 +66,10 @@ run rsync again to update files on `<destination-path>`.
 
 rsync has several important options:
 
-- `a`  ^`^s "archive" mode; traverses directories recursively
-- `v`  ^`^s "verbose"; reports which files are copied
-- `z`  ^`^s "zips" (compresses) the files on transfer
-- `h`  ^`^s "human readable" reporting
+- `-a` "archive" mode; traverses directories recursively
+- `-v` "verbose"; reports which files are copied
+- `-z` "zips" (compresses) the files on transfer
+- `-h` "human readable" reporting
 
 The source and destination can be on the same filesystem,
 or they can be different machines entirely.

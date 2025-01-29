@@ -1,7 +1,7 @@
 # Software modules
 
 To manage multiple software packages, including different versions of the same software, 
-ICDS uses the [Lmod](https://lmod.readthedocs.io/en/latest/) environment module system to 
+ICDS uses the [Lmod Environment Module System](https://lmod.readthedocs.io/en/latest/) to 
 prevent conflicts and compartmentalize software and compiler usage.
 
 Users can use the `module` command combined with different subcommands to access and use 

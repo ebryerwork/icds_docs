@@ -1,7 +1,7 @@
 # Custom module Files
 
-ICDS uses the lmod Environmental Module system. This system is highly exandable and allow 
-users to create and use their own module files.
+ICDS uses the [Lmod Environment Module System](https://lmod.readthedocs.io/en/latest/). 
+This system is highly exandable and allows for the creation and use of custom module files.
 
 ## Module File Structure
 
@@ -57,6 +57,7 @@ The `module use` command is used to specify the location of module files:
 ```
 module use <module_directory>
 ```
+
 in which `<module_directory>` is the path to your modules.
 
 Adding the `module use` line to your `.bashrc` file will make the modules automatically accessable 

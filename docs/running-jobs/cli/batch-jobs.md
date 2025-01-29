@@ -6,6 +6,7 @@ that executes commands, with a header of [Slurm directives](slurm.md/#slurm-reso
 which are prefixed by #SBATCH.
 
 The three main portions of a batch script are:
+
  - **The shebang:** This defines the interpreter for the batch script. The most common one used is `#!/bin/bash` 
 for the Bash interpreter.
  - **[Slurm directives](slurm.md/#slurm-resource-directives):** These are configuration settings used by 

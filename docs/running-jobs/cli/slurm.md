@@ -23,7 +23,7 @@ Its primary functions are to
 Resource directives are used to specify compute resources when submitting a job 
 request to the scheduler. They allow you to indicate the run time, amount of memory, 
 and the number of cores your job will use. They are required when launching 
-[Interactive Jobs](#interactive-jobs) and [Batch Jobs](#batch-jobs) through the
+[Interactive Jobs]() and [Batch Jobs](#batch-jobs) through the
 command line interface.
 
 [Interactive Jobs Through the Roar Portal](#interactive-jobs-through-the-roar-portal) 
@@ -91,6 +91,7 @@ utilizing these variables can be beneficial in many cases.
 | `SLURM_QUEUE` | Queue (partition) |
 | `SLURM_SUBMIT_DIR` | Directory of job submission |
 
-Further details on the available resource directives for Slurm are defined by Slurm in the documentation of the [salloc](https://slurm.schedmd.com/salloc.html) and [sbatch](https://slurm.schedmd.com/sbatch.html) commands.
+Further details on the available resource directives for Slurm are defined by Slurm in the documentation 
+of the [salloc](https://slurm.schedmd.com/salloc.html) and [sbatch](https://slurm.schedmd.com/sbatch.html) commands.
 
 

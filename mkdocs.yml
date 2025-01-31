@@ -5,6 +5,7 @@ theme:
   name: material
   features:
     - content.code.copy
+    - navigation.sections
   highlightjs: false
   logo: img/PSU_ICDS_logo_blue.png
   site_favicon: img/favicon.ico

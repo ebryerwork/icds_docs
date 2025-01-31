@@ -29,13 +29,13 @@ To use the open partition:
 
 To use an [allocation](paid-resources/allocations.md):
 
- - Account: <your_allocation_id>
+ - Account: your_allocation_id
  - Sbatch options: --partition=sla-prio
 
 To specify a hardware partition for [credit accounts](paid-resources/credit-accounts.md):
 
- - Account: <your_credit_account>
- - Sbatch options: --partiton=<hardware_partition>
+ - Account: your_credit_account
+ - Sbatch options: --partiton=hardware_partition
 
 For details regarding available hardware partitions, see [Availalbe Hardware Partitions](paid-resources/credit-accounts.md/#available-hardware-partitions)
 

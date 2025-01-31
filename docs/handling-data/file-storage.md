@@ -17,22 +17,6 @@ Files in home, work, and group are backed up by a sequence of daily "snapshots" 
 To have files restored from a snapshot, email Client Support at <icds@psu.edu>.
 
 
-## Archive storage
-
-To store infrequently-used files, low-cost archive storage can be purchased. 
-Archive is only accessible via the [Globus][globus] web interface,
-so access is not quick or convenient.
-If you store a directory that contains many files, 
-you should pack the directory into a single file with `tar`
-(see [Creating File Archives using tar](managing-files/archives.md))
-before transferring.
-[globus]: transfering-data/globus.md
-
-!!! warning "Archive storage is not suitable for storing protected data."
-     If you are working with data or software that must adhere to regulatory requirements
-     please contact us or the [Office of Information Security](https://security.psu.edu) 
-     to ensure it is being handled appropriately.
-
 ## Quotas
 
 home, work, group, and scratch directories are subject to limits,
@@ -76,7 +60,7 @@ ln -s $WORK/.comsol ~/.comsol
 This can be repeated for any directory in home that is causing the out of space error.
 
 
-## Checking storage
+## Monitoring storage use
 
 If you fill or nearly fill your home or work directories,
 weird errors will result when you try to run programs or write files.
@@ -99,31 +83,27 @@ lists directory sizes in order from large to small
 (the output of du is "piped" to [sort][sort]).
 [sort]: https://man7.org/linux/man-pages/man1/sort.1.html
 
-## File permissions
+## Archive storage
 
-File permissions are settings that can be set on files and directories that 
-control who has access to read, write, and execute them. These settings can be 
-set at the user, group, or global level.
+To store infrequently-used files, low-cost archive storage can be purchased. 
+Files in archive cannot be used or access in place and are only accessible via the [Globus][globus] web interface,
+so access is not quick or convenient.
 
-For example, group space on Collab, located at
-`/storage/group/<PIuserID>/default`,
-for which the default file permissions and ownership are
+Archive quota limits are:
 
-```
-drwxr-s-- 2 root <PIuserID>
-```
+| Storage | Path | Size | Inodes | Backup | Purpose |
+| :----: | :----: | :----: | :----: | :----: | :----: |
+| Archive | /storage/archive | Specific to<br>allocation | 200,000<br>per TB | None  | Long-term<br>File Storage |
 
-The `s` setting in the group permissions means 
-every file and folder created within the group folder
-will have the same group read `r` permission.
-However, files created elsewhere and moved into group 
-have the permissions they were created with.
-To change them, use [`chmod`][chmod]:
-[chmod]: https://man7.org/linux/man-pages/man1/chmod.1p.html
-```
-chmod g+r <filespec>
-```
-More generally, chmod can be used to add or remove (+ or -) 
-permissions to read (r), write (w), or execute (x),
-for the user (u), group (g), or others (o).
+
+If you store a directory that contains many files, 
+you should pack the directory into a single file with `tar`
+(see [Creating File Archives using tar](managing-files/archives.md))
+before transferring.
+[globus]: transfering-data/globus.md
+
+!!! warning "Archive storage is not suitable for storing protected data."
+     If you are working with data or software that must adhere to regulatory requirements
+     please contact us or the [Office of Information Security](https://security.psu.edu) 
+     to ensure it is being handled appropriately.
 

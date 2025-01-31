@@ -48,12 +48,15 @@ Many source packages are built using [`cmake`][cmake],
 a Unix tool for controlling the compile and load process.
 To use cmake, first load its module:
 [cmake]: https://cmake.org/cmake/help/latest/manual/cmake.1.html
+
 ```
 module load cmake
 ```
+
 To build from source, the typical procedure
 is to `cd` into the source folder,
 and execute in turn:
+
 ```
 mkdir build
 cd build
@@ -61,6 +64,7 @@ cmake <options>
 make
 make install
 ```
+
 Here `<options>` is a list of options for cmake,
 that may control what version of the software to build,
 what assumptions to make about the CPU,

@@ -13,9 +13,9 @@ Its primary functions are to
  - Provide a framework for starting, executing, and monitoring work on the set of allocated compute resources
  - Arbitrate contention for resources by managing a queue of pending work
 
-!!! warning
-
-    Do not perform computationally intensive tasks on submit nodes. Submit a resource request via Slurm for computational resources so your computational task can be performed on a compute node.
+!!! warning "Be kind to the submit nodes"
+    Submit nodes provide vital access to the cluster. Do not perform computationally intensive tasks on submit nodes. 
+    For interactive work, request an [Interactive Job](interactive-jobs.md) first.
 
 
 ## Slurm Resource Directives
@@ -23,10 +23,10 @@ Its primary functions are to
 Resource directives are used to specify compute resources when submitting a job 
 request to the scheduler. They allow you to indicate the run time, amount of memory, 
 and the number of cores your job will use. They are required when launching 
-[Interactive Jobs](#interactive-jobs) and [Batch Jobs](#batch-jobs) through the
+[Interactive Jobs](interactive-jobs.md) and [Batch Jobs](batch-jobs.md) through the
 command line interface.
 
-[Interactive Jobs Through the Roar Portal](#interactive-jobs-through-the-roar-portal) 
+[Interactive Jobs Through the Roar Portal](../portal.md) 
 also use resource directives through the drop down menus in the portal interface.
 
 The following table lists some of the most commonly used resource directives.
@@ -42,18 +42,16 @@ The following table lists some of the most commonly used resource directives.
 | NA | `--mem` | Specify the amount of memory required per node |
 | NA | `--mem-per-cpu` | Specify the amount of memory required per CPU |
 | `-t` | `--time` | Set a limit on the total run time |
-| `-C` | `--constraint` | Specify any required node features* |
+| `-C` | `--constraint` | Specify any required node features<br>*This feature is only available to paid account holders* |
 | `-e` | `--error` | Connect script's standard error to a non-default file |
 | `-o` | `--output` | Connect script's standard output to a non-default file |
 | NA | `--requeue` | Specify that the batch job should be eligible for requeuing |
 | NA | `--exclusive` | Require exclusive use of nodes reserved for job |
 
 
-* Constraits are only available for paid resources.
-
-Details on additional directives and job options can be found in the [Slurm sbatch documentation]
-(https://slurm.schedmd.com/sbatch.html) for batch jobs and the [Slurm salloc documentation]
-(https://slurm.schedmd.com/salloc.html) for interactive jobs.
+Details on additional directives and job options can be found in the [Slurm sbatch 
+documentation](https://slurm.schedmd.com/sbatch.html) for batch jobs and the [Slurm salloc 
+documentation](https://slurm.schedmd.com/salloc.html) for interactive jobs.
 
 ## Replacement Symbols
 
@@ -75,6 +73,10 @@ and the file name is `slurm-%j.out`, where the `%j` is replaced by the job ID.
 The output and error filenames are customizable, however, using the table of 
 symbols below.
 
+Additional details on Replacement Symbols can be found in the [Slurm sbatch 
+documentation](https://slurm.schedmd.com/sbatch.html) for batch jobs and the [Slurm salloc 
+documentation](https://slurm.schedmd.com/salloc.html) for interactive jobs.
+
 ## Environmental Variables
 
 Slurm makes use of environment variables within the scope of a job, and 
@@ -91,6 +93,41 @@ utilizing these variables can be beneficial in many cases.
 | `SLURM_QUEUE` | Queue (partition) |
 | `SLURM_SUBMIT_DIR` | Directory of job submission |
 
-Further details on the available resource directives for Slurm are defined by Slurm in the documentation of the [salloc](https://slurm.schedmd.com/salloc.html) and [sbatch](https://slurm.schedmd.com/sbatch.html) commands.
+Additional details on Environmental Variables used by Slurm can be found in the [Slurm sbatch 
+documentation](https://slurm.schedmd.com/sbatch.html) for batch jobs and the [Slurm salloc 
+documentation](https://slurm.schedmd.com/salloc.html) for interactive jobs.
 
 
+## Hardware details 
+
+### sinfo
+
+The SLURM command `sinfo` displays information about *all* Collab nodes.
+Its output is more easily read with some formatting options,
+
+```
+sinfo --Format=features:30,nodelist:20,cpus:5,memory:10,gres:30
+```
+
+An example output of the `sinfo` command would look like:
+
+```
+$ sinfo --Format=features:30,nodelist:20,cpus:5,memory:10,gres:30
+AVAIL_FEATURES                NODELIST            CPUS MEMORY    GRES
+standard,a100,cascadelake     p-gc-[3001-3035,303848   380000    gpu:a100:2(S:0-11,36-47)
+standard,a100_3g,mig,cascadelap-gc-3036           48   380000    gpu:a100_3g:4(S:0-11,36-47)
+```
+
+Details on additional `sinfo` options can be found in the [Slurm sinfo 
+documentation](https://slurm.schedmd.com/sinfo.html). 
+
+### Node attributes
+
+Roar Collab contains a wide variety of different hardware configurations. To find out 
+specifics about the hardware on different nodes, there are several helpful tools.
+
+ - `lscpu`: displays information about the CPU and its capabilities
+ - `nvidia-smi`: displays information about the GPU (if present).
+
+Using these commands within your jobs can provide details on the hardware it is running
+on.

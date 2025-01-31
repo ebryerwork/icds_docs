@@ -1,30 +1,17 @@
-# Loading packages
-
-
-## Python 
+# Managing Python Packages
 
 Python is a widely-used programming language, preloaded on Collab,
 which is greatly extensible in its capabilities by loading additional packages.
 
-To load Python packages, use pip:
 
-### Installing packages using pip
+## Installing packages using pip
+
+To load Python packages, use `pip` with the `--user` flag:
 
 ```
 pip install --user <package>
 ```
 
-### Installing packages using conda
+Sometimes, user python package libraries can become too large for storage in the home directory. 
+To correct this issue, see [Solution to common quota issues in home](../../handling-data/file-storage.md/#solution-to-common-quota-issues-in-home).
 
-Python packages are loaded by default into `$HOME/.local`.
-If you load a large number of big Python packages,
-you may exceed the limited storage space in your home directory.
-
-If this becomes a problem, the `.local` directory can be moved to `~/work`,
-and a link placed in your home directory.
-To make such a link, in your home directory execute the command
-```
-ln -s .local work/.local
-```
-which creates an alias (in Unix-speak, a "symbolic link") named `.local`
-that points to the directory you moved to `work`.

@@ -4,7 +4,7 @@
 
 Containers address the growing issue of software and dependency complexity by storing the 
 software and all its dependencies (including a minimal operating system) in a single image 
-file which, which runs on top of the host machine kernel - abstracting the application layer 
+file, which runs on top of the host machine kernel - abstracting the application layer 
 and defining the user environment.
 
 Containers change the user space into a swappable component, and provide the following benefits:

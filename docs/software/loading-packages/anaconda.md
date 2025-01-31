@@ -9,6 +9,12 @@ One such software platform is R,
 a widely used application for statistical analysis and plotting,
 which is greatly extensible by loading packages.
 
+To learn more about Anaconda, we recommend the ["Introduction to Conda for (Data) Scientists" 
+Lesson](https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/) from [The 
+Carpentries](https://carpentries.org/).
+
+## Common Anaconda Commands
+
 This table summarizes useful Anaconda commands:
 
 | Command | Description |
@@ -58,7 +64,6 @@ Within an active environment, to load a package, execute
 conda install <package>
 ```
 
-
 ## Anaconda in batch scripts
 
 To ensure that Anaconda is properly initialized 
@@ -73,8 +78,7 @@ This can be done in one of three ways:
 ## Anaconda on Portal
 
 Special considerations apply if you want to use conda environments you have defined,
-for Python or R for example,
-in an interactive session launched from the Collab Portal.
+for Python or R for example, in an interactive session launched from the Collab Portal.
 
 ### Jupyter Server
 
@@ -84,16 +88,20 @@ that appears as you configure the session.
 
 To use your own previously created conda environment within a Jupyter Server session,
 select instead "Use custom text field", which will contain 
+
 ```
 module load anaconda3
 ```
+
 For this to work, the `ipykernel` package must be installed into your environment beforehand.
 To do this, within a terminal session execute the following:
+
 ```
 conda activate <environment>
 conda install -y ipykernel
 ipython kernel install --user --name=<environment>
 ```
+
 When the session begins, your environment is displayed in the kernel list.
 
 ### RStudio 
@@ -105,6 +113,7 @@ additional R packages can be installed from an extensive list.
 
 But if you want to use your own custom environment within an RStudio session,
 select instead "Use custom text field", and enter the following text:
+
 ```
 module load anaconda
 conda activate <environment>

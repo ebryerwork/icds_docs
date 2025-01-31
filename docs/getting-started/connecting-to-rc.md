@@ -3,10 +3,10 @@
 ## Setting up a Login Account
 
 Access to Roar Collab (RC) requires a login account.
-All RC users have access to user-level [storage space](10_FileStorage.md/#quotas),
+All RC users have access to user-level [storage space](../handling-data/file-storage.md/#quotas),
 and free access to the open queue.
 
-For access to the restricted system, please see the [Roar Restricted Addendum](16_RoarRestricted.md).
+For access to the restricted system, please see the [Roar Restricted Addendum](../roar-restricted/rr-getting-started.md).
 
 Anyone with a Penn State access ID can request an account on Roar Collab.
 Students and postdocs must be sponsored by a Penn State faculty member (their supervisor, advisor or collaborator). 
@@ -39,11 +39,12 @@ For more advanced tasks, users can access the command line interface through the
 
 Alternatively, you can access the cluster via [SSH](https://linux.die.net/man/1/ssh) from a terminal application running on your laptop.
 
-On Windows, use the Command Prompt included by default. Or install an external SSH client such as [PuTTY](https://www.putty.org) or [MobaXterm](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://mobaxterm.mobatek.net/);
+On Windows, use the Command Prompt included by default. Or install an external SSH client such as [PuTTY](https://www.putty.org) or [MobaXterm](https://mobaxterm.mobatek.net/);
 
 On MacOS, Terminal is installed by default. But you can use an external client such as [iTerm](https://iterm2.com).
 
 From the Command Prompt/Terminal, log on to a submit node using the command
+
 ```
 ssh <user>@submit.hpc.psu.edu
 ```
@@ -56,7 +57,7 @@ To make changes to your MFA device or method please visit [PSU's accounts portal
 
 For security reasons, Roar Restricted can only be accessed via the [RR Portal](https://rrportal.hpc.psu.edu/) using the 
 [Penn State VPN](https://pennstate.service-now.com/sp?id=kb_article_view&sysparm_article=KB0013431&sys_kb_id=24f7cdd9dbd7e0d02c4f9e74f3961967&spa=1). 
-For more details, see the [Roar Restricted Addendum](16_RoarRestricted).
+For more details, see the [Roar Restricted Addendum](../roar-restricted/rr-getting-started.md).
 
 ## X11 Forwarding / X Window
 
@@ -66,8 +67,8 @@ This is accomplished by the remote machine communicating with an XServer which r
 To set this up:
 
 1. Install an XServer client on your local computer:
-    - MacOS: [XQuartz](https://www.xquartz.org).
-    - Windows: [VcXsrv](https://sourceforge.net/projects/vcxsrv/).
+    - MacOS: [XQuartz](https://www.xquartz.org)
+    - Windows: [VcXsrv](https://sourceforge.net/projects/vcxsrv/)
 2. Enable X11 forwarding when connecting via SSH:
 
 ```
@@ -75,5 +76,5 @@ ssh -X <user>@submit.hpc.psu.edu
 ```
 
 Using X11 forwarding with a local computer that is connecting from outside of the Penn State networks can 
-result in slow or "laggy" performance. Using [Interactive Portal Jobs](../running-jobs/portal/interactive-jobs.md) 
+result in slow or "laggy" performance. Using [Interactive Portal Jobs](../running-jobs/portal.md) 
 may provide better performance.

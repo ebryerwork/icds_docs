@@ -3,6 +3,9 @@ site_url: https://icds-docs.readthedocs.io/en/latest
 
 theme: 
   name: readthedocs
+#  features:
+#    - content.code.copy
+#    - navigation.sections
   highlightjs: false
   logo: img/PSU_ICDS_logo_blue.png
   site_favicon: img/favicon.ico
@@ -23,7 +26,6 @@ plugins:
 nav:
     - Getting Started: 
         - getting-started/system-overview.md
-        - getting-started/compute-hardware.md
         - getting-started/before-you-start.md
         - getting-started/connecting-to-rc.md
     - Handling Data:
@@ -32,6 +34,7 @@ nav:
              - handling-data/managing-files/managing-files.md
              - handling-data/managing-files/searching-files.md
              - handling-data/managing-files/archives.md
+             - handling-data/managing-files/file-permissions.md
         - Transferring Data: 
              - handling-data/transferring-data/transfer-overview.md
              - handling-data/transferring-data/globus.md

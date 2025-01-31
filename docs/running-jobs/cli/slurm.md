@@ -13,9 +13,9 @@ Its primary functions are to
  - Provide a framework for starting, executing, and monitoring work on the set of allocated compute resources
  - Arbitrate contention for resources by managing a queue of pending work
 
-!!! warning
-
-    Do not perform computationally intensive tasks on submit nodes. Submit a resource request via Slurm for computational resources so your computational task can be performed on a compute node.
+!!! warning "Be kind to the submit nodes"
+    Submit nodes provide vital access to the cluster. Do not perform computationally intensive tasks on submit nodes. 
+    For interactive work, request an [Interactive Job](interactive-jobs.md) first.
 
 
 ## Slurm Resource Directives
@@ -23,10 +23,10 @@ Its primary functions are to
 Resource directives are used to specify compute resources when submitting a job 
 request to the scheduler. They allow you to indicate the run time, amount of memory, 
 and the number of cores your job will use. They are required when launching 
-[Interactive Jobs]() and [Batch Jobs](#batch-jobs) through the
+[Interactive Jobs](interactive-jobs.md) and [Batch Jobs](batch-jobs.md) through the
 command line interface.
 
-[Interactive Jobs Through the Roar Portal](#interactive-jobs-through-the-roar-portal) 
+[Interactive Jobs Through the Roar Portal](../portal.md) 
 also use resource directives through the drop down menus in the portal interface.
 
 The following table lists some of the most commonly used resource directives.
@@ -42,7 +42,7 @@ The following table lists some of the most commonly used resource directives.
 | NA | `--mem` | Specify the amount of memory required per node |
 | NA | `--mem-per-cpu` | Specify the amount of memory required per CPU |
 | `-t` | `--time` | Set a limit on the total run time |
-| `-C` | `--constraint` | Specify any required node features<br>*This feature is only available for paid account jobs* |
+| `-C` | `--constraint` | Specify any required node features<br>*This feature is only available to paid account holders* |
 | `-e` | `--error` | Connect script's standard error to a non-default file |
 | `-o` | `--output` | Connect script's standard output to a non-default file |
 | NA | `--requeue` | Specify that the batch job should be eligible for requeuing |

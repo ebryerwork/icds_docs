@@ -37,7 +37,7 @@ To submit a batch script, the [sbatch](https://slurm.schedmd.com/sbatch.html) co
 $ sbatch pyjob.slurm
 ```
 
-To check the status of queued and running jobs, use the [squeue](https://slurm.schedmd.com/squeue.html) command:
+To check the status of queued and running jobs, use the [squeue](#squeue) command:
 
 ```
 $ squeue -u <userid>
@@ -68,9 +68,9 @@ To specify a partition within your batch job, use the `--partition` directive. F
 
 For resources needs that do not fit well into the open queue, ICDS offers two different paid account options:
 
-- [Allocations](../running-jobs/paid-resources/allocations.md): Reserved hardware allowing for instanteous usage at a 
+- [Allocations](../paid-resources/allocations.md): Reserved hardware allowing for instanteous usage at a 
 flat, monthly rate
-- [Credit/Pay-per-use](../running-jobs/paid-resources/credit-accounts.md): Flexible use model allowing for a variety of 
+- [Credit/Pay-per-use](../paid-resources/credit-accounts.md): Flexible use model allowing for a variety of 
 hardware use
 
 A paid compute allocation provides access to specific compute resources for an individual user or for a group of users. 

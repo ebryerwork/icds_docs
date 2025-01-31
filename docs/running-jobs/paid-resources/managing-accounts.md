@@ -7,10 +7,22 @@ $ sacctmgr show User $(whoami) --associations format=account%30,qos%40
 ```
 
 
-## Modifying Allocation Coordinators
+## Managing Compute Accounts
 
-The principal contact for a compute allocation is automatically designated as a coordinator for the account. 
+### Adding and Removing Users
+
+A coordinator can add and remove users from the compute account using the following:
+
+```
+$ sacctmgr add user account=<compute-account> name=<userid>
+$ sacctmgr remove user account=<compute-account> name=<userid>
+```
+
+### Adding and Removing Account Coordinators
+
 Account coordinators can control access to a compute account by adding and removing other users and coordinators.
+The account owner is automatically designated as the account coordinator, but they can appoint other users to 
+serve as coordinators in addition to or in place of themselves.
  
 To add or remove account coordinators:
 
@@ -19,15 +31,8 @@ $ sacctmgr add coordinator account=<compute-account> name=<userid>
 $ sacctmgr remove coordinator account=<compute-account> name=<userid>
 ```
 
-
-## Adding and Removing Users from an Allocation
-
-A coordinator can then add and remove users from the compute account using the following:
-
-```
-$ sacctmgr add user account=<compute-account> name=<userid>
-$ sacctmgr remove user account=<compute-account> name=<userid>
-```
+!!! warning "Account Coordinators can control all access to the account"
+    Coordinators have the ability to add and remove other coordinators to the account, including the account owner.
 
 
 ## Managing Access to Group Storage

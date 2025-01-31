@@ -87,7 +87,7 @@ If the account does not appear in the "Account" drop down box, you may need to b
 coordinators can [add and remove users from their allocations](managing-accounts.md), or contact the helpdesk at
 [icds@psu.edu] to request a user be added.
 
-Additionally, a hardware partition will need to be specified. To do so, select the "Enable advanced Slurm options" option and 
+Additionally, a [hardware partition](#available-hardware-partitions) will need to be specified. To do so, select the "Enable advanced Slurm options" option and 
 enter the necessary directives in the "Sbatch options" text box:
 
 ```
@@ -113,7 +113,7 @@ This can be further modified to request a specific GPU model:
 ```
 
 For more details on available GPU models, please see the current [Compute 
-Hardware](../../getting-started/compute-hardware.md) available. 
+Hardware](../../getting-started/system-overview.md/#compute-hardware) available. 
 
 !!! warning "Ensure your software is GPU enabled"
     Requesting GPU resources for a job is only beneficial if the software running within the job 
@@ -125,7 +125,9 @@ Hardware](../../getting-started/compute-hardware.md) available.
 The VirtualGL GPU acceleration option will ensure the job is launched using OpenGL. This option is beneficial if your 
 interactive job uses a graphical interface and requires a GPU to use.
 
-**Please note: If you try to launch a job with the VirtualGL option enabled without requesting a GPU, the job will fail.**
+!!! warning "VirtualGL GPU acceleration requires a GPU"
+     If you try to launch a job with the VirtualGL option enabled without requesting a GPU, the job will fail.
+
 
 ### Custom Hardware Configurations
 
@@ -240,3 +242,24 @@ Hardware](../../getting-started/compute-hardware.md) available.
     Requesting GPU resources for a job is only beneficial if the software running within the job 
     is GPU-enabled 
 
+
+#### VirtualGL GPU acceleration
+
+Using VirtualGL accelleration on the command line will ensure the job is launched using OpenGL. This option is 
+beneficial if your interactive job uses a graphical interface and requires a GPU to use.
+
+To run a command using VirtualGL accelleration, use the `vglrun` command. This command should be available on any 
+GPU enabled node.
+
+For example, running Amira3D using VirtualGL accelleration can be accomplished using the following command from a terminal 
+prompt within an interactive job:
+
+```
+$ module load avizo
+$ vglrun Amira3D
+```
+
+!!! warning "Graphical interfaces requires graphical support"
+     To correctly launch a graphical interface requires an [X11 enabled SSH 
+     connection](../../getting-started/connecting.md/#x11-forwarding-x-window). Alternately, 
+     an Interactive Desktop session on the [Roar Collab Portal](../portal.md) can be used instead. 

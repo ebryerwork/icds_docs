@@ -9,6 +9,57 @@ A credit account provides the following benefits:
 - Run times longer than the 48 hour limit on the open queue
 - Pay only for the resources used
 
+## Monitoring Credit Accounts
+
+!!! warning "Credit use is non-refundable"
+    There are no bounds on the maximum amount of credits jobs can use. Be judicious to avoid inadvertantly 
+    using more credits than intended.
+
+Submitting jobs against credit accounts will debit the account for resources allocated through the actual 
+runtime of the job. The scheduler cannot differentiate between resources allocated versus resources actually used. 
+When requesting multiple cores or GPU resources, ensure your job can utilize all of the requested hardware to 
+avoid being charged for unused resources.
+
+
+### Estimating Credit Use
+
+The `job_estimate` utility can be used to determine how many credits would be used by a [batch 
+job](../cli/batch-jobs.md) based on the resources requested in the [batch script](../cli/batch-jobs.md/#batch-scripts).
+
+To use the utility, provide a batch script file as shown here:
+
+```
+job_estimate <submit file>
+```
+
+For example, if I have batch script called `comsol.slurm`, I can get an estimated credit use as follows:
+
+```
+$ job_estimate comsol.slurm
+Estimated job cost: 0.0021 credits
+```
+
+The output units can be modified with the `--units` flag:
+
+```
+$ job_estimate --units slurm-billing-units comsol.slurm
+Estimated job cost: 6000.0000 slurm-billing-units
+```
+
+For more options and details on their use, check `job-estimate --help`.
+
+
+### Current balance information
+
+The `get_balance` command can be used to show current credit account balances. To use, supply the credit account name:
+
+```
+get_balance <credit_account>
+```
+
+There are options for viewing the output in different units. Use `get_balance -h` for additional usage information.
+
+
 ## Available Hardware Partitions
 
 Jobs submitted using a credit account can utilize a variety of the CPU and GPU resources in Roar Collab. 
@@ -25,6 +76,7 @@ The number of cores equates to the number of requested cores, or their equivalen
 
 For example, if a job requests 1 core with 32 GB memory in the `standard` partition, it will be charged as if 4 
 cores were used because it used the memory equivalent of 4 standard cores at 8 GB/core.
+
 
 ## Using a Credit Account on the Portal
 
@@ -44,27 +96,36 @@ enter the necessary directives in the "Sbatch options" text box:
 
 ### Requesting GPUs
 
-To request a GPU for the job, you will need to add the `--gpus` directive to specify the desired hardware:
+To request a GPU for a job, you will need to add the `--gres` directive to specify the desired hardware:
 
 ```
 --partition=<desired_partition>
---gpus=1
+--gres=gpu:1
 ```
 
-You can also request a specific GPU model by using the `--constraint` directive:
+The number specified in `gpu:1` will indicate the total number of GPUs allocated for the job.
+
+This can be further modified to request a specific GPU model:
 
 ```
 --partition=<desired_partition>
---gpus=1
---constraint=a100
+--gres=gpu:a100:1
 ```
+
+For more details on available GPU models, please see the current [Compute 
+Hardware](../../getting-started/compute-hardware.md) available. 
+
+!!! warning "Ensure your software is GPU enabled"
+    Requesting GPU resources for a job is only beneficial if the software running within the job 
+    is GPU-enabled 
+
 
 #### VirtualGL GPU acceleration
 
 The VirtualGL GPU acceleration option will ensure the job is launched using OpenGL. This option is beneficial if your 
 interactive job uses a graphical interface and requires a GPU to use.
 
-** Please note: If you try to launch a job with the VirtualGL option enabled without requesting a GPU, the job will fail. **
+**Please note: If you try to launch a job with the VirtualGL option enabled without requesting a GPU, the job will fail.**
 
 
 ## Using an Allocation on the Command Line
@@ -96,57 +157,37 @@ salloc -A <compute_account> -p <hardware_partition>
 All GPUs on Roar Collab available for credit accounts are hosted within the `standard` partition.
 
 To request a GPU for a job running against a credit account, you will need to specify the `standard` partition and 
-request GPUs with the `--gpus=n` directive, where `n` is the number of GPU cards desired. Within a batch script, this 
-would look like:
+request GPUs with the `--gres=gpu:n` directive, where `n` is the number of GPU cards desired. Within a batch script, 
+requesting one GPU card would look like:
 
 ```
 #SBATCH --account=<credit_account_id>
 #SBATCH --partition=standard
-#SBATCH --gpus=n
+#SBATCH --gres=gpu:1
 ```
 
 Or you can specify this along with your `sbatch` command when submitting jobs:
 
 ```
-sbatch -A <credit_account_id> -p standard --gpus=n <batch_script>
+sbatch -A <credit_account_id> -p standard --gres=gpu:1 <batch_script>
 ```
 
 For an interactive job, the `salloc` command is similar:
 ```
-salloc -A <credit_account_id> -p standard --gpus=n
+salloc -A <credit_account_id> -p standard --gres=gpu:1
 ```
 
-Total credit billing for GPU jobs will be a combination of the CPU and GPU usage.
-
-
-#### Requesting specific GPU models
-
-There are several different models of GPUs available on RC, most of which can be used for credit account jobs. These include:
-
-- `p100` - NVIDIA P100 GPU (1 card per node)
-- `v100` - NVIDIA V100 GPU (1 card per node?)
-- `a100` - NVIDIA A100 GPU (2 cards per node)
-- `a100_3g` - NVIDIA A100 MIG 1/2 slice
-- `a100_1g` - NVIDIA A100 MIG 1/7 slice
-
-To request one of the above, in addition to specifying the partition and gpus directives as specified above, the `--constraint` 
-directive can be used. 
-
-For example, to request a single A100 GPU the following directives would be needed in your batch script
+This can be further modified to request a specific GPU model:
 
 ```
-#SBATCH --account=<credit_account_id>
-#SBATCH --partition=standard
-#SBATCH --gpus=1
-#SBATCH --constraint=a100
+--partition=<desired_partition>
+--gres=gpu:a100:1
 ```
 
-## Monitoring Allocation Access
+For more details on available GPU models, please see the current [Compute 
+Hardware](../../getting-started/compute-hardware.md) available. 
 
-The `get_balance` command can be used to show current credit account balances. To use, supply the credit account name:
+!!! warning "Ensure your software is GPU enabled"
+    Requesting GPU resources for a job is only beneficial if the software running within the job 
+    is GPU-enabled 
 
-```
-get_balance <credit_account>
-```
-
-There are options for viewing the output in different units. Use `get_balance -h` for additional usage information.

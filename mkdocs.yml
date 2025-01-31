@@ -31,6 +31,7 @@ nav:
              - handling-data/managing-files/managing-files.md
              - handling-data/managing-files/searching-files.md
              - handling-data/managing-files/archives.md
+             - handling-data/managing-files/file-permissions.md
         - Transferring Data: 
              - handling-data/transferring-data/transfer-overview.md
              - handling-data/transferring-data/globus.md

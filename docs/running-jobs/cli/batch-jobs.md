@@ -14,7 +14,7 @@ the scheduler to allocate resources for your job. Required ones are `--mem`, `--
 but can be highly customized.
  - **Script commands:** commands in the form of a shell script to be executed once the job begins.
 
-## Batch Script
+## Batch Scripts
 
 Below is a sample Slurm script for running a Python script:
 
@@ -74,23 +74,6 @@ flat, monthly rate
 hardware use
 
 A paid compute allocation provides access to specific compute resources for an individual user or for a group of users. 
-
-## GPUs
-
-Access to GPUs requires a paid allocation or credit account. Requesting a GPU involves the scheduler directive 
-`--gpus`. For example, adding the following line to your Slurm directives will request one GPU is allocated:
-
-```
---gpus=1
-```
-
-An account will need to be specified to use a GPU. For more information on requesting GPUs within your jobs, 
-please check the details that correspond to your specific account type:
-
- - [Requesting GPUs with Allocations](../running-jobs/paid-resources/allocations.md/#requesting-gpus)
- - [Requesting GPUs with Credit Accounts](../running-jobs/paid-resources/credit-accounts.md/#requesting-gpus_1)
-
-!!! warning "Requesting GPU resources for a job is only beneficial if the software running within the job is GPU-enabled."
 
 
 ## Job Management and Monitoring

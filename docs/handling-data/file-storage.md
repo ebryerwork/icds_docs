@@ -93,7 +93,7 @@ Archive quota limits are:
 
 | Storage | Path | Size | Inodes | Backup | Purpose |
 | :----: | :----: | :----: | :----: | :----: | :----: |
-| Archive | /storage/archive | Specific to<br>allocation | 250,000<br>per TB | None  | Long-term<br>File Storage |
+| Archive | /storage/archive | Specific to<br>allocation | 200,000<br>per TB | None  | Long-term<br>File Storage |
 
 
 If you store a directory that contains many files, 

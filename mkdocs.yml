@@ -23,7 +23,6 @@ plugins:
 nav:
     - Getting Started: 
         - getting-started/system-overview.md
-        - getting-started/compute-hardware.md
         - getting-started/before-you-start.md
         - getting-started/connecting-to-rc.md
     - Handling Data:

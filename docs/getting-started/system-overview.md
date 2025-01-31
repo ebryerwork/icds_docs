@@ -25,38 +25,18 @@ Collab consists of different parts, connected together by networks:
 
 ![architecture](../img/RCUserFlowDiagram.png)
 
-## Accounts
+## Compute Hardware
 
-To log on to Collab, you need a [login account](connecting-to-rc.md/#setting-up-a-login-account).
-To work on Collab, you can use the open queue at no cost,
-which gives you access to the Portal, and to batch jobs on vintage hardware.
-But to use any of the newer, more powerful hardware,
-you need a paid [allocation](../running-jobs/paid-resources/allocations.md) or 
-[credit account](../running-jobs/paid-resources/credit-accounts.md).
+A cluster consists of multiple nodes connected to one or more central filesystems. 
+A node is basically a single computer, roughly comparable to a powerful desktop machine. 
 
-## Accessing Roar
+Some nodes are networked together with fast connections (Infiniband) that enable 
+efficient communication between nodes, allowing large jobs to run in parallel 
+on multiple nodes.
 
-Roar Collab can be accessed in two ways: via the web-based Collab Portal <br>
-<https://rcportal.hpc.psu.edu/pun/sys/dashboard> <br>
-and by "secure shell" ([`ssh`][ssh]) 
-from a terminal application.
-[ssh]: https://linux.die.net/man/1/ssh
+Finally, some nodes include GPUs (graphical processing units),
+which can accelerate certain compute jobs.
 
-The Portal (which runs [Open OnDemand](https://openondemand.org))
-is designed mainly for interactive work.
-It provides:
+### Available Hardware on RC
 
-- a Windows-like desktop environment;
-- a web-based file browser, to upload and download files;
-- graphical, number-crunching programs, 
-such as ANSYS, COMSOL, MATLAB, and RStudio.
-
-The Portal is easy to use, 
-because its preloaded programs can be launched and used
-without knowing Unix.
-And, its Windows-like desktop provides a familiar "feel"
-for users accustomed to laptops (especially Linux laptops).
-From its Terminal application, users have access to the full capabilities of Collab, needed to prepare and submit jobs.
-
-Collab can also be accessed via SSH (Secure SHell), from a terminal application on a laptop. 
-For more information about Portal and SSH access, see [Connecting to Roar Collab](connecting-to-rc.md).
+### Available Hardware on RR

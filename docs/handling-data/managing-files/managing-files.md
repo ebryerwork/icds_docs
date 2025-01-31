@@ -12,7 +12,7 @@ In classic Unix, these tasks are all performed with command line tools:
 -  `mv` (move)
 -  `rm` (remove)
 
-Part of learning [Linux](../../getting-started/before-you-start/#roar-uses-linux)
+Part of learning [Linux](../../getting-started/before-you-start.md/#roar-uses-linux)
 is becoming familiar with these commands. 
 
 If you prefer a more "graphical" user interface, two options exist.
@@ -23,8 +23,8 @@ from the Portal Interactive Destop
 or an SSH -X terminal session (`thunar` at the command line).
 [thunar]: https://docs.xfce.org/xfce/thunar/start
 
-Alternatively, the Collab [Portal][portal] top menu under Files/Home
+Alternatively, the [Roar Collab Portal][portal] top menu under Files/Home
 opens a window that enables file management
 (moving, copying, renaming, making and deleting folders).
-[portal]: https://rcportal.hpc.psu.edu/pun/sys/dashboard
+[portal]: https://portal.hpc.psu.edu/pun/sys/dashboard
 

@@ -55,9 +55,11 @@ If the directory contains many files but only a few are changed,
 it would be nice to have a program that automatically updates
 only the changed files. [`rsync`][rsync] does this:
 [rsync]: https://linux.die.net/man/1/rsync
+
 ```
 rsync <options> <source-path> <destination-path>
 ```
+
 copies files from `<source-path>` to `<destination-path>`,
 *and deletes files if necessary*,
 to make the destination the same as the source.
@@ -87,5 +89,4 @@ For more examples, visit [Tecmint][tecmint].
 
 !!! warning ""
      With rsync, the source is the original, and the destination is the copy.
-     Don't reverse direction, or you will confuse rsync and yourself,
-     and wind up clobbering or deleting files.
+     Take care to ensure you are identifying them correctly.

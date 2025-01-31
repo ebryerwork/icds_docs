@@ -2,8 +2,8 @@
 
 ## Installing from source
 
-Collab offers a broad range of installed open-source applications,
-but sometimes you need an application Collab doesn't have.
+Roar Collab offers a broad range of installed open-source applications,
+but sometimes you need an application that is not already available
 
 Users are allowed and encouraged to compile and install their own software 
 in their storage directories. Depending on how well documented the software 

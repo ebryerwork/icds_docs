@@ -21,13 +21,14 @@
 
 ### Roar uses Linux
 
-The operating system for Roar is Red Hat Enterprise Linux 8 ([RHEL8](https://www.redhat.com/en),
+The operating system for Roar is Red Hat Enterprise Linux 8 ([RHEL8](https://docs.redhat.com/en/documentation/red_hat_enterprice_linux/8),
 a text-based operating system where users interact with the system
 by typing commands, called a command line interface (CLI). Many prefer the CLI
 interface because it is fast and responsive and many tasks can be automated with scripts.
 
 To take full advantage of the functionality of Roar, it is recommended that one be
 familiar with navigating in the Linux CLI and capable of performing the following tasks:
+
  - Navigating the file system using commands such as `cd` and `ls`
  - Viewing and editing text files using commands such as `cat` and `nano`
  - Searching for files and their content using `grep` and `find`

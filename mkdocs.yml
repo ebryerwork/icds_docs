@@ -20,8 +20,8 @@ markdown_extensions:
     - pymdownx.superfences
 
 plugins:
-    - bootstrap4-blockquotes
-    - bootstrap4-tables
+#    - bootstrap4-blockquotes
+#    - bootstrap4-tables
 
 nav:
     - Getting Started: 

@@ -53,7 +53,7 @@ To correct the out of space error, it is recommended to move the offending direc
 symlink pointing to the new location. For example, moving the `.comsol` directory is done with the following commands:
 
 ```
-mv ~/.comsol $WORK/.comsol
+mv ~/.comsol $WORK/
 ln -s $WORK/.comsol ~/.comsol
 ```
 

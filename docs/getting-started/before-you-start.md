@@ -7,7 +7,7 @@
      examining results, and transferring files.
 
 !!! warning "Don't store files on scratch."
-     [Scratch is not backed up](10_FileStorage.md), 
+     [Scratch is not backed up](../handling-data/file-storage.md/#quotas), 
      and files more than 30 days old are deleted.
 
 !!! warning "Don't overrun your file storage quota."

@@ -35,4 +35,4 @@ familiar with navigating in the Linux CLI and capable of performing the followin
 
 To learn more about any of the above, we recommend following the [HPC Carpentry lesson "Introduction
 to Using the Shell in a HPC Context"](https://www.hpc-carpentry.org/hpc-shell/). The lesson contents
-can be followed directly once [a terminal session has been establshed](connecting-to-rc.md/#connecting-via-ssh).
+can be followed once [a terminal session has been establshed](connecting-to-rc.md/#connecting-via-ssh).

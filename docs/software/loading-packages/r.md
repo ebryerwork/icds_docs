@@ -64,7 +64,7 @@ R session.
 Always check the package documentation for details on which dependencies a specific package requires. CRAN hosted packages 
 almost always have a Reference manual which specify dependencies.
 
-## R Package Installation Example: units
+### R Package Installation Example: units
 
 
 Sometimes dependent software or libraries will need to be downloaded and installed to proceed with the R package

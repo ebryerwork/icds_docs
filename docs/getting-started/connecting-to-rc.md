@@ -33,6 +33,7 @@ The portal provides a solution for users who are not familiar with the Linux com
 Connect to the portal using your web browser at [https://portal.hpc.psu.edu]
 
 For more advanced tasks, users can access the command line interface through the portal under the "Clusters" menu:
+
 ![..img/RCPortalShell.png]
 
 ## Connecting via SSH

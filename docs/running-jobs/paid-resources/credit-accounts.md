@@ -87,8 +87,8 @@ If the account does not appear in the "Account" drop down box, you may need to b
 coordinators can [add and remove users from their allocations](managing-accounts.md), or contact the helpdesk at
 [icds@psu.edu] to request a user be added.
 
-Additionally, a [hardware partition](#available-hardware-partitions) will need to be specified. To do so, select the "Enable advanced Slurm options" option and 
-enter the necessary directives in the "Sbatch options" text box:
+Additionally, a [hardware partition](#available-hardware-partitions) will need to be specified. To do so, select the 
+"Enable advanced Slurm options" option and enter the necessary directives in the "Sbatch options" text box:
 
 ```
 --partition=<desired_partition>
@@ -261,5 +261,5 @@ $ vglrun Amira3D
 
 !!! warning "Graphical interfaces requires graphical support"
      To correctly launch a graphical interface requires an [X11 enabled SSH 
-     connection](../../getting-started/connecting.md/#x11-forwarding-x-window). Alternately, 
+     connection](../../getting-started/connecting-to-rc.md/#x11-forwarding-x-window). Alternately, 
      an Interactive Desktop session on the [Roar Collab Portal](../portal.md) can be used instead. 

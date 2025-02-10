@@ -100,7 +100,7 @@ If you store a directory that contains many files,
 you should pack the directory into a single file with `tar`
 (see [Creating File Archives using tar](managing-files/archives.md))
 before transferring.
-[globus]: transfering-data/globus.md
+[globus]: transferring-data/globus.md
 
 !!! warning "Archive storage is not suitable for storing protected data."
      If you are working with data or software that must adhere to regulatory requirements

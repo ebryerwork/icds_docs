@@ -12,7 +12,7 @@
 
 !!! warning "Don't overrun your file storage quota."
      If you fill your allotted disk space, weird errors result.
-     Keep an eye on your [disk space usage](../handling-data/file-storage/#quotas).
+     Keep an eye on your [disk space usage](../handling-data/file-storage.md/#quotas).
 
 !!! warning "Don't waste your compute resources."
      Start with interactive sessions to test your workflow and set up your software.

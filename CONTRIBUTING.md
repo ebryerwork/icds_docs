@@ -15,13 +15,7 @@ does not show or the site becomes inoperable, it is likely due to an error in th
 To prevent conflicts with others, it is recommended to create your own fork of the repository and 
 work on changes there. 
 
-If you use your own fork, you can set up readthedocs to serve the site. Additional information on how to do this can be found here:
-
- - https://docs.readthedocs.io/en/stable/tutorial/
- - https://docs.readthedocs.io/en/stable/intro/getting-started-with-mkdocs.html
-
-
-Or, you can preview these changes locally by following these steps:
+You can preview changes locally by following these steps:
 
 1. Install necessary tools on your local machine
 	- Python - https://www.python.org/downloads/release/python-3132/ 
@@ -34,8 +28,11 @@ Or, you can preview these changes locally by following these steps:
 1. Start the server: `mkdocs serve`
 1. View the site in your browser: http://127.0.0.1:8000/en/latest/
 
-Once you are satisfied with the changes, you can push them to the staging branch to view in place. Finally, 
-submit a pull request to incorporate your changes into the main branch.
+Once you are satisfied with the changes, create a pull request to the staging branch. Once the PR is approved and merged, 
+the changes will be reflected in the staging site.
+
+Once the changes are approved and checked via the staging portal, submit a pull request to the main branch to have the 
+changes integrated into the live site.
 
 ## Helpful links:
 

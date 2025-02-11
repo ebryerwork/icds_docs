@@ -5,9 +5,8 @@ This is a GitHub repo for the [Roar User Guide] in Markdown format using mkdocs.
 The live documentation is hosted from the `main` branch. This branch is protected and 
 changes can only be proposed via pull requests. This can be viewed at https://docs.icds.psu.edu
 
-There is also a `staging` branch which is not push protected and can be viewed at https://docs.icds.psu.edu/staging
-Any changes made to the `staging` branch will be incorporated into the site every 5 minutes. If the change 
-does not show or the site becomes inoperable, it is likely due to an error in the code sent.
+There is also a `staging` branch which can be viewed at https://docs.icds.psu.edu/staging
+Any changes made to the `staging` branch will be incorporated into the site every 5 minutes. If the change does not show or the site becomes inoperable, it is likely due to an error in the code sent.
 
 
 ## Recommended Workflow:
@@ -31,8 +30,7 @@ You can preview changes locally by following these steps:
 Once you are satisfied with the changes, create a pull request to the staging branch. Once the PR is approved and merged, 
 the changes will be reflected in the staging site.
 
-Once the changes are approved and checked via the staging portal, submit a pull request to the main branch to have the 
-changes integrated into the live site.
+Once the changes are approved and checked via the staging portal, submit a pull request to the main branch to have the changes integrated into the live site.
 
 ## Helpful links:
 

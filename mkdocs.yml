@@ -5,19 +5,19 @@ site_author: Institute of Computational and Data Sciences
 repo_url: https://github.com/PSU-ICDS/icds_docs
 
 theme: 
-  name: material
-  features:
+  name: readthedocs
+#  features:
 #    - content.code.copy
 #    - navigation.sections
-    - navigation.footer
+#    - navigation.footer
   highlightjs: false
   logo: img/PSU_ICDS_logo_blue.png
   site_favicon: img/favicon.ico
   next_previous: true
-extra:
-  generator: false
-extra_footer: |
-  [Contribute to this project](https://github.com/PSU-ICDS/icds_docs/CONTRIBUTING.md)
+#extra:
+#  generator: false
+#extra_footer: |
+#  [Contribute to this project](https://github.com/PSU-ICDS/icds_docs/CONTRIBUTING.md)
 
 
 extra_css: 

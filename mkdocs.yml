@@ -1,7 +1,6 @@
 site_name: Roar User Guide
 site_url: https://docs.icds.psu.edu
-site_description: User documentation for the Roar Supercomputer hosted by the 
-Institute of Computational and Data Sciences at the Pennsylvania State University.
+site_description: User documentation for the Roar Supercomputer hosted by the Institute of Computational and Data Sciences at the Pennsylvania State University.
 site_author: Institute of Computational and Data Sciences
 repo_url: https://github.com/PSU-ICDS/icds_docs
 

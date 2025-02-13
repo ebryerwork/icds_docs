@@ -7,9 +7,10 @@ repo_url: https://github.com/PSU-ICDS/icds_docs
 
 theme: 
   name: material
-#  features:
+  features:
 #    - content.code.copy
 #    - navigation.sections
+    - navigation.footer
   highlightjs: false
   logo: img/PSU_ICDS_logo_blue.png
   site_favicon: img/favicon.ico

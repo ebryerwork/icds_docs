@@ -37,6 +37,8 @@ on multiple nodes.
 Finally, some nodes include GPUs (graphical processing units),
 which can accelerate certain compute jobs.
 
+<!--
 ### Available Hardware on RC
 
 ### Available Hardware on RR
+-->

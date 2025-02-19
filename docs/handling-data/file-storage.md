@@ -2,7 +2,7 @@
 
 Files are stored on Roar Collab in a central filesystem;
 
-Users have access to four directories:  home, work, group, and scratch.
+Users have access to four central filesystems:  home, work, group, and scratch.
 These have different purposes:
 
 - **home** – for configuration files, and links to work, group, and scratch.
@@ -11,7 +11,7 @@ only you have read-write access to your home and work directories.
 - **scratch**  – for temporary storage of large files.  scratch is *not backed up*, 
 and files with a last modified time stamp older than 30 days will be *automatically deleted*.
 
-Additionally, PI-owned **group** storage directories are availalbe for purchase. These are designed for collaborative work or group level software.
+PI-owned **group** storage directories are available for purchase. These are designed for collaborative work or group level software.
 
 Files in home, work, and group are backed up by a sequence of daily "snapshots" which are kept for 90 days. 
 To have files restored from a snapshot, email Client Support at <icds@psu.edu>.
@@ -20,7 +20,7 @@ To have files restored from a snapshot, email Client Support at <icds@psu.edu>.
 ## Quotas
 
 home, work, group, and scratch directories are subject to limits,
-both on the total filespace and on the total number of inodes. Inodes are data structures that 
+both on the amount of storage space and on the number of inodes. Inodes are data structures that 
 store most of the essential information about a file or directory. Files, directories, and 
 symlinks all count towards inode limits.
 
@@ -39,9 +39,9 @@ directory and group storage directories are located in the restricted storage sp
 
 ### Solution to common quota issues in home
 
-Many user level config files and package libraries are stored in the home directory by default.
+Many user-level configuration files and package libraries are stored in the home directory by default.
 Large package libraries can quickly overwhelm the home quota and cause out of space errors. 
-This commonly occurs with directories such a
+This commonly occurs with directories such as
 
  - `.local` - used by Python to store user installed packages
  - `.comsol` - used by Comsol
@@ -86,8 +86,9 @@ lists directory sizes in order from large to small
 ## Archive storage
 
 To store infrequently-used files, low-cost archive storage can be purchased. 
-Files in archive cannot be used or access in place and are only accessible via the [Globus][globus] web interface,
-so access is not quick or convenient.
+Files in archive cannot be used or accessed in place, so access is neither
+quick nor convenient. The [Globus][globus] web interface is the only way
+to access these files.
 
 Archive quota limits are:
 

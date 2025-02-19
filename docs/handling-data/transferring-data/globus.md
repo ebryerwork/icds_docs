@@ -11,9 +11,9 @@ their own machines, allowing for direct file transfers between any of these poin
 
 ICDS Hosted Endpoints:
 
-| Filesystem | Endpoint |
+| Filesystems | Endpoint |
 | ---- | ---- |
-| Roar Collab | Pen State ICDS RC |
+| Roar Collab | Penn State ICDS RC |
 | Archive | Penn State ICDS Archive |
 | PSU OneDrive | Penn State ICDS OneDrive |
 
@@ -30,9 +30,9 @@ documentation](https://docs.globus.org/how-to/get-started/)
 To transfer files to or from a personal machine, a mapped collection must be established by installing the 
 Globus Connect Personal client.
 
-Operating System specific instructions can be found in the Globus documenation for:
+Operating System specific instructions can be found in the Globus documentation for:
 
 - [Linux](https://docs.globus.org/globus-connect-personal/install/linux/)
-- [MacOSX](https://docs.globus.org/globus-connect-personal/install/mac/)
+- [macOS](https://docs.globus.org/globus-connect-personal/install/mac/)
 - [Windows](https://docs.globus.org/globus-connect-personal/install/windows/)
 

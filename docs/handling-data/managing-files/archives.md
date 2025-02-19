@@ -5,10 +5,10 @@ compressed file. This is commonly done to simplify file navigation and wrangling
 more efficient, and reducing inode quota limits. Compressing or "packing" files prior to transfer or moving 
 them to long term storage is recommended.
 
-To create an archive on Roar Collab, the `tar` command can be used with th `-c` arguement:
+To create an archive on Roar Collab, the `tar` command can be used with th `-c` argument:
 
 ```
-tar -cf <tarfilename>.tar <directory_or_file_list
+tar -cf <tarfilename>.tar <directory_or_file_list>
 ```
 
 Adding the `-z` option further compresses the archive. For example, to make a compressed archive called 

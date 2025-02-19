@@ -344,6 +344,11 @@ Specifically, the following command displays all running and queued jobs for a s
 $ squeue -u <user>
 ```
 
+To obtain the expected start time (worst case scenario) of the jobs scheduled for a specific user, we can use the command: 
+```
+$ squeue -u <user> --start
+```
+
 A useful environment variable is the `SQUEUE_FORMAT` variable which enables customization of the details shown by the `squeue` command. 
 This variable can be set, for example, with the following command to provide a highly descriptive `squeue` output:
 

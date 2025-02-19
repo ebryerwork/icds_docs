@@ -1,6 +1,6 @@
 # Command Line File Transfers
 
-Most command line utilites can be used on Roar Collab.
+Most command line utilities can be used on Roar Collab.
 
 ## sftp
 
@@ -12,7 +12,7 @@ for file transfers.  To launch sftp,
 sftp <username>@<address>
 ```
 where `<address>` is the address of a "remote machine",
-and `<username>` is your userid on that machine.
+and `<username>` is your user id on that machine.
 For sftp *to* Collab, the address is `submit.hpc.psu.edu`,
 the same as for ssh logon.
 
@@ -39,7 +39,7 @@ with "local" versions of these commands, `lcd` and `lls`.
      "Graphical" sftp clients for your laptop
      can be used for file transfer to Collab,
      as well as to OneDrive or other cloud storage providers.
-     Two popular options for both OS X and Windows are
+     Two popular options for both macOS and Windows are
      [Cyberduck][cyberduck] and [FileZilla][filezilla].
 [cyberduck]:https://cyberduck.io
 [filezilla]:https://filezilla-project.org
@@ -68,15 +68,15 @@ run rsync again to update files on `<destination-path>`.
 
 rsync has several important options:
 
-- `-a` "archive" mode; traverses directories recursively
-- `-v` "verbose"; reports which files are copied
+- `-a` "archive" mode traverses directories recursively
+- `-v` "verbose" reports which files are copied
 - `-z` "zips" (compresses) the files on transfer
 - `-h` "human readable" reporting
 
 The source and destination can be on the same filesystem,
 or they can be different machines entirely.
 From a Unix command line on your laptop
-(running Linux or OS X),
+(running Linux or macOS),
 ```
 rsync /work/newData abc123@submit.hpc.psu.edu:/storage/work/abc123/toAnalyze/
 ```

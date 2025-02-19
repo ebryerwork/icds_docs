@@ -48,13 +48,14 @@ Use this with caution!  List the files first.
 
 Find files, and then compress them:
 ```
-find . -name "*.trr" -exec compress {} ; 
+find . -name "*.trr" -exec compress {} \; 
 ```
 
 Find files of a certain type, get their sizes, and sum them:
 ```
 find . -name "*.trr" -exec du -csh '{}' +
 ```
+Use great caution when combining `rm` with `find`.
 
 Find files of a certain type, get their sizes, and sort by size:
 ```
@@ -83,7 +84,7 @@ In this form, grep finds all lines in `<file>` that contain `<pattern>`.
 The pattern can have "wildcards" -- `*` matches anything, for example.
 
 `<file>` can be a single filename, or itself a pattern
-that matches multiple files; for example, `*.log` matches all logfiles.
+that matches multiple files; for example, `*.log` matches all log files.
 
 grep is often useful to "filter" the output of commands.
 `ps -e` lists all running processes (a very long list).
@@ -91,9 +92,9 @@ To look for any process that mentions `vmd`:
 ```
 ps -e | grep vmd
 ```
-`grep -R` searches recursively through subdirectories.
+`grep -R` searches recursively through subdirectories, following all symbolic links.
 Here, grep searches the current directory `.` and its subdirectories,
-including all files `*.sh`, looking for pattern `sed`, 
+including only files named `*.sh`, looking for pattern `sed`, 
 and writes the results to `sedExamples`: 
 ```
 grep -R ‘.’ --include *.sh -e ‘sed’ > sedExamples

@@ -1,7 +1,7 @@
 # Transferring files
 
 Computational workflows often require files 
-on Roar Collab, Roar archival storage, 
+on Roar RC, Roar archival storage, 
 OneDrive, or your laptop or desktop machine
 to be transferred -- copied from one place to another.
 
@@ -13,11 +13,13 @@ No single tool is best for all cases;
 below, we recommend methods, 
 and list approximate transfer rates for large files.
 
-| Transfer | Method | Rate (MB/sec) |
+| Transfer | Method | Relative Rate |
 | ---- | ---- | ---- |
-| Collab &harr; Archive | Globus | 50 |
-| Collab &rarr; OneDrive | Firefox or Globus | 50 | 
-| OneDrive &rarr; Collab | Firefox or Globus | 10 |
-| Collab &harr; laptop | Portal Files menu | 25 |
-| Collab &harr; laptop | Cyberduck or FileZilla | 15 |
-| OneDrive &harr; laptop | Local Web Browser | 20 |
+| RC &harr; Archive | Globus | slow |
+| RC &rarr; OneDrive | Firefox in an Open On Demand session or Globus | slow | 
+| OneDrive &rarr; RC | Firefox in an Open On Demand session or Globus | slow |
+| RC &harr; laptop | Portal Files menu | moderate |
+| RC &harr; laptop | Cyberduck or FileZilla | moderate |
+| OneDrive &harr; laptop | Local Web Browser | slow |
+| RC &harr; most globus collections | Globus | fast |
+These are typical but not universal results. Transfers will be limited by the slowest intervening networking or storage componenet.

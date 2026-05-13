@@ -193,3 +193,21 @@ For more examples, visit [Tecmint][tecmint].
      With rsync, the source is the original, and the destination is the copy.
      Don't reverse direction, or you will confuse rsync and yourself,
      and wind up clobbering or deleting files.
+
+## Nextcloud
+
+[ICDS data-cloud](https://data-cloud.hpc/psu.edu) is a web-based file management system. The focus of the data-cloud service is to provide a sync-and-share option similar to OneDrive. ICDS provides this service on an as-is basis. For data transfers, please use [Globus](https://globus.org). For large-scale synchronization loads, consider using [Globus Timers](https://docs.globus.org/api/timers/getting-started/schedule-a-transfer/). Another option is the [ICDS Open OnDemand's Rclone](https://portal.hpc.psu.edu/pun/sys/dashboard/batch_connect/sys/rclone/session_contexts/new).
+
+To access the ICDS Nextcloud server, navigate to [data-cloud.hpc.psu.edu](https://data-cloud.hpc.psu.edu).
+
+Log in is accomplished with Penn State Single Sign-On (SSO)—the same method you use when checking your Penn State email. 
+
+The first time you log in, you will need to connect your storage directories:
+1. Click your profile icon in the upper right corner (this usually defaults to your initials shown in reverse order).
+2. Select **Settings**, then click **External Storage** from the menu.
+3. Enter your Penn State username and password for each of the listed storage mounts: **RC-HOME**, **RC-GROUP**, and **RC-WORK**.
+4. Click the checkmark icon next to each entry to save it. A green checkmark will appear to the left of the mount name to indicate a successful connection.
+
+To begin browsing your files, click the **Files** (folder) icon in the upper left corner.
+
+ICDS data-cloud is an instance of the [Nextcloud](https://docs.nextcloud.com/server/latest/user_manual/en/) software. For more information about its features, including how to set up [file synchronization](https://docs.nextcloud.com/server/latest/user_manual/en/files/desktop_mobile_sync.html) and [file sharing](https://nextcloud.com/blog/sharing-in-nextcloud/), please refer to the official [Nextcloud user manual](https://docs.nextcloud.com/server/latest/user_manual/en/).

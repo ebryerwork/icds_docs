@@ -20,7 +20,8 @@ and list approximate transfer rates for large files.
 | Roar &harr; laptop | Portal Files Menu (< 1GB) | 25 |
 | Roar &harr; laptop | Cyberduck or FileZilla | 15 |
 | Roar &harr; laptop | Globus Personal Collection (> 1GB) | 50 |
-| OneDrive &harr; laptop | Web Access |20 |
+| OneDrive &harr; laptop | Web Access | 20 |
+| data-cloud &harr; laptop | Web Access | 30 |
 
 (Transfer rates may be slower, 
 if limited by intervening network or storage speeds.)

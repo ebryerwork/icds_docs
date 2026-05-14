@@ -209,6 +209,6 @@ The first time you log in, you will need to connect your storage directories:
 3. Enter your Penn State username and password for each of the listed storage mounts: **RC-HOME**, **RC-GROUP**, and **RC-WORK**.
 4. Click the checkmark icon next to each entry to save it. A green checkmark will appear to the left of the mount name to indicate a successful connection.
 
-To begin browsing your files, click the **Files** (folder) icon in the upper left corner.
+To begin browsing your files, click the **Files** (folder) icon in the upper left corner, click the **Folder tree** icon on the left side, and click on one of the subfolders such as **RC-HOME**.
 
 ICDS data-cloud is an instance of the [Nextcloud](https://docs.nextcloud.com/server/latest/user_manual/en/) software. For more information about its features, including how to set up [file synchronization](https://docs.nextcloud.com/server/latest/user_manual/en/files/desktop_mobile_sync.html) and [file sharing](https://nextcloud.com/blog/sharing-in-nextcloud/), please refer to the official [Nextcloud user manual](https://docs.nextcloud.com/server/latest/user_manual/en/).

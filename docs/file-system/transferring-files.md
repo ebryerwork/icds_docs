@@ -195,7 +195,7 @@ For more examples, visit [Tecmint][tecmint].
      Don't reverse direction, or you will confuse rsync and yourself,
      and wind up clobbering or deleting files.
 
-## Nextcloud
+## data-cloud
 
 [ICDS data-cloud](https://data-cloud.hpc/psu.edu) is a web-based file management system. The focus of the data-cloud service is to provide a sync-and-share option similar to OneDrive. ICDS provides this service on an as-is basis. For data transfers, please use [Globus](https://globus.org). For large-scale synchronization loads, consider using [Globus Timers](https://docs.globus.org/api/timers/getting-started/schedule-a-transfer/). Another option is the [ICDS Open OnDemand's Rclone](https://portal.hpc.psu.edu/pun/sys/dashboard/batch_connect/sys/rclone/session_contexts/new).
 
